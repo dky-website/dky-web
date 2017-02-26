@@ -1,5 +1,4 @@
 
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -19,12 +18,13 @@ app.locals.ENV_DEVELOPMENT = env == 'development';
 
 // view engine setup
 
-app.engine('handlebars', exphbs({
+app.engine('hbs', exphbs({
   defaultLayout: 'main',
-  partialsDir: ['views/partials/']
+  partialsDir: ['views/partials/'],
+  extname: '.hbs'
 }));
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'hbs');
 
 // app.use(favicon(__dirname + '/public/img/favicon.ico'));
 app.use(logger('dev'));
