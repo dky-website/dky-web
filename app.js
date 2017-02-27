@@ -1,11 +1,11 @@
-
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var exphbs  = require('express-handlebars');
+var exphbs = require('express-handlebars');
+var hbsHelpers = require('handlebars-helpers')();
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
@@ -17,11 +17,11 @@ app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
 
 // view engine setup
-
 app.engine('hbs', exphbs({
-  defaultLayout: 'main',
-  partialsDir: ['views/partials/'],
-  extname: '.hbs'
+    defaultLayout: 'main',
+    partialsDir: ['views/partials/'],
+    extname: '.hbs',
+    helpers: hbsHelpers
 }));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -30,7 +30,7 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: true
+    extended: true
 }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));

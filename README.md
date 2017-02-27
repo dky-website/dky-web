@@ -1,6 +1,6 @@
 # dky-web
 
-dky-web designed by express + jquery + handlebars, run on node environment.
+dky-web designed by express + jquery + handlebars, base on node.
 
 ## Getting started
 
