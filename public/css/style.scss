@@ -3,6 +3,32 @@
 .footer {
     padding: 38px 180px;
     background-color: #f2f2f2;
+    display: flex;
+    .link-section {
+        width: 130px;
+        flex: 1;
+        .title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .devide {
+            width: 20px;
+            height: 1px;
+            margin: 22px 0;
+            background: #b3b3b3;
+        }
+        .link {
+            font-size: 12px;
+            padding-bottom: 16px;
+            a {
+                color: #666;
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
 }
 
 .copyright {
