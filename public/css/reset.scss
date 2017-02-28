@@ -1,0 +1,162 @@
+@charset 'UTF-8';
+html
+{
+    font-family: 'Microsoft YaHei', tahoma, Helvetica, Arial, '\5FAE\8F6F\96C5\9ED1';
+    font-size: 62.5%;
+}
+
+body,
+ul,
+ol,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+table,
+th,
+td,
+menu
+{
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+}
+
+table
+{
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+ul,
+ol,
+menu
+{
+    list-style: none;
+}
+
+fieldset,
+img
+{
+    border: none;
+}
+
+img,
+object,
+select,
+input,
+textarea,
+button
+{
+    vertical-align: middle;
+}
+
+input,
+textarea,
+select,
+address,
+
+caption,
+cite,
+code,
+dfn,
+em,
+i,
+b,
+strong,
+small,
+th,
+var,
+abbr
+{
+    font-size: 100%;
+    font-style: normal;
+}
+
+caption,
+th
+{
+    text-align: left;
+}
+
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section,
+figure,
+figcaption
+{
+    display: block;
+}
+
+code,
+kbd,
+pre,
+samp,
+tt
+{
+    font-family: Consolas, 'Courier New', Courier, monospace;
+}
+
+address,
+cite,
+dfn,
+em,
+var,
+i
+{
+    font-style: normal;
+}
+
+blockquote,
+q
+{
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after
+{
+    content: '';
+    content: none;
+}
+
+a
+{
+    cursor: pointer;
+    text-decoration: none;
+
+    color: #06f;
+    &:link,
+    &:visited,
+    &:active
+    {
+        color: #06f;
+    }
+    &:hover,
+    &:focus
+    {
+        text-decoration: underline;
+
+        color: #f60;
+        outline: none;
+    }
+}
