@@ -122,12 +122,22 @@ a {
     color: #f60;
     outline: none; }
 
+@font-face {
+  font-family: 'iconfont';
+  src: url("iconfont.eot");
+  /* IE9*/
+  src: url("iconfont.eot?#iefix") format("embedded-opentype"), url("iconfont.woff") format("woff"), url("iconfont.ttf") format("truetype"), url("iconfont.svg#iconfont") format("svg");
+  /* iOS 4.1- */ }
+.iconfont {
+  font-family: "iconfont";
+  font-size: 16px;
+  font-style: normal; }
+
 .footer {
   padding: 38px 180px;
   background-color: #f2f2f2;
   display: flex; }
   .footer .link-section {
-    width: 130px;
     flex: 1; }
     .footer .link-section .title {
       font-size: 14px;
@@ -144,6 +154,24 @@ a {
         color: #666; }
         .footer .link-section .link a:hover, .footer .link-section .link a:focus {
           text-decoration: none; }
+  .footer .contact-section {
+    flex: 1; }
+    .footer .contact-section .qr-code {
+      margin: 0 auto;
+      height: 100px;
+      width: 100px;
+      background-image: url("http://placehold.it/100x100"); }
+    .footer .contact-section .external {
+      display: flex;
+      width: 200px;
+      margin-top: 40px; }
+      .footer .contact-section .external .link {
+        flex: 1;
+        text-align: center; }
+        .footer .contact-section .external .link a {
+          color: #808080; }
+          .footer .contact-section .external .link a:hover, .footer .contact-section .external .link a:focus {
+            text-decoration: none; }
 
 .copyright {
   background-color: #e2ded0;
