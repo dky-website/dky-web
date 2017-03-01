@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var hbsHelpers = require('handlebars-helpers')();
+var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/user');
@@ -32,7 +33,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-app.use(cookieParser());
+app.use(cookieParser('dankeyun'));
+
+app.use(session({
+    secret: 'dankeyun',
+    resave: true,
+    saveUninitialized:true
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
