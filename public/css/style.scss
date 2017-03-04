@@ -14,6 +14,49 @@
     font-style:normal;
 }
 
+.bar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background: rgba(229, 229, 229, 0.6) !important;
+    filter:Alpha(opacity=60);
+    background:#fff;
+    text-align: center;
+    .logo {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bolder;
+        letter-spacing: 10px;
+        height: 70px;
+        line-height: 70px;
+    }
+    .nav-wrapper {
+        .nav {
+            margin: 0 auto;
+            .nav-item {
+                display: inline-block;
+                height: 50px;
+                line-height: 50px;
+                width: 230px;
+                text-align: center;
+                a {
+                    color: #000;
+                    display: inline-block;
+                    height: 100%;
+                    width: 100px;
+                    &:hover,
+                    &:focus {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
 .footer {
     padding: 38px 180px;
     background-color: #f2f2f2;
