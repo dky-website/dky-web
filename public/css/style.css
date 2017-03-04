@@ -137,6 +137,7 @@ a {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 999;
   width: 100%;
   height: 120px;
   background: rgba(229, 229, 229, 0.6) !important;
@@ -156,7 +157,8 @@ a {
       display: inline-block;
       height: 50px;
       line-height: 50px;
-      width: 230px;
+      width: 220px;
+      font-size: 14px;
       text-align: center; }
       .bar .nav-wrapper .nav .nav-item a {
         color: #000;
