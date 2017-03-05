@@ -2,20 +2,43 @@
     <div class="logo">
         <span>DANKEYUN</span>
     </div>
-    <div class="nav-wrapper">
-        <ul class="nav">
-            <li class="nav-item">
-                <a href="">产品</a>
-            </li>
-            <li class="nav-item">
-                <a href="">SHOW</a>
-            </li>
-            <li class="nav-item">
-                <a href="">服务</a>
-            </li>
-            <li class="nav-item">
-                <a href="">联络</a>
-            </li>
-        </ul>
-    </div>
+    {{#eq menu 'index'}}
+        <div class="nav-wrapper">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="">产品</a>
+                </li>
+                <li class="nav-item">
+                    <a href="">SHOW</a>
+                </li>
+                <li class="nav-item">
+                    <a href="">服务</a>
+                </li>
+                <li class="nav-item">
+                    <a href="">联络</a>
+                </li>
+            </ul>
+        </div>
+    {{/eq}}
 </div>
+
+{{#eq menu 'index'}}
+<script type="text/javascript">
+    $(function() {
+        if ($(window).scrollTop() > 10) {
+            $('.nav-wrapper').hide();
+            setTimeout(function() {
+                $('.nav-wrapper').show();
+            }, 500);
+        }
+    })
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 10) {
+            $('.nav-wrapper').removeClass('show').addClass('hide');
+        } else {
+
+            $('.nav-wrapper').removeClass('hide').addClass('show');
+        }
+    });
+</script>
+{{/eq}}

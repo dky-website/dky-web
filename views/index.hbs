@@ -1,33 +1,69 @@
-<!-- Swiper -->
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide" style="background-image:url(http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/0F/09/ChMkJ1auzkiIQl1qABBkQpUBqu0AAH9LgPBBmcAEGRa807.jpg)"></div>
-        <div class="swiper-slide" style="background-image:url(http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/05/ChMkJ1hssrmIOTAYAA-6c0hf2TIAAZFxAAgMyAAD7qL352.jpg)"></div>
-        <div class="swiper-slide" style="background-image:url(http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/04/ChMkJ1hssqmIQZ-kABPsESDrfIkAAZFwgDD8aMAE-wp821.jpg)"></div>
+<div class="index">
+    <!-- Swiper -->
+    <div class="banner-container">
+        <div class="swiper-wrapper">
+            {{#forEach bannerPics}}
+                <div class="swiper-slide" style="background-image:url({{ ../root }}/{{ path }})"></div>
+            {{/forEach}}
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Add Arrows -->
+        <div class="swiper-button-next swiper-button-white"></div>
+        <div class="swiper-button-prev swiper-button-white"></div>
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination swiper-pagination-white"></div>
-    <!-- Add Arrows -->
-    <div class="swiper-button-next swiper-button-white"></div>
-    <div class="swiper-button-prev swiper-button-white"></div>
+    <div class="product-wrapper">
+        <div class="thumb">
+            <div class="cover"></div>
+            <div class="category">
+                <ul>
+                    <li class="active">
+                        <a href="#">Woman</a>
+                    </li>
+                    <li>/
+                        <a href="#">Man</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="carousel">
+            <!-- Swiper -->
+            <div class="carousel-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image:url(http://placehold.it/500x400)"></div>
+                </div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image:url(http://placehold.it/500x400)"></div>
+                </div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="background-image:url(http://placehold.it/500x400)"></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="summary">
+                <p>Man Fashion</p>
+                <p>Autumn 16/17</p>
+            </div>
+        </div>
+    </div>
 </div>
-<style>
-    .swiper-container {
-        width: 100%;
-        height: 595px;
-    }
-    .swiper-slide {
-        background-position: center;
-        background-size: cover;
-    }
-</style>
+
+
 <script type="text/javascript">
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        spaceBetween: 30,
-        effect: 'fade'
-    });
+    $(function() {
+        var swiperBanner = new Swiper('.banner-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            spaceBetween: 30,
+            effect: 'fade'
+        });
+        var swiperCarousel = new Swiper('.carousel-container', {
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            direction: 'vertical'
+        });
+    })
 </script>

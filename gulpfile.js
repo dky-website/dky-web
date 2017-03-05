@@ -2,10 +2,16 @@ var gulp = require('gulp'),
   nodemon = require('gulp-nodemon'),
   plumber = require('gulp-plumber'),
   livereload = require('gulp-livereload'),
-  sass = require('gulp-ruby-sass');
+  sass = require('gulp-ruby-sass'),
+  autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass', function () {
   return sass('./public/css/**/*.scss')
+    .pipe(autoprefixer({
+        browsers: ['last 2 versions', 'Android >= 4.0'],
+        cascade: true, //是否美化属性值
+        remove:true //是否去掉不必要的前缀 默认：true
+    }))
     .pipe(gulp.dest('./public/css'))
     .pipe(livereload());
 });
