@@ -183,7 +183,8 @@ a {
           .bar .nav-wrapper .nav .nav-item a:hover, .bar .nav-wrapper .nav .nav-item a:focus {
             text-decoration: none; }
     .bar .nav-wrapper.hide {
-      height: 0; }
+      height: 0;
+      overflow: hidden; }
       .bar .nav-wrapper.hide .nav {
         -webkit-animation: menu-hide 0s ease-in 0s 1 alternate forwards;
         animation: menu-hide 0s ease-in 0s 1 alternate forwards; }
@@ -305,8 +306,8 @@ a {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      width: 200px;
-      margin-top: 40px; }
+      width: 150px;
+      margin: 40px auto 0 auto; }
       .footer .contact-section .external .link {
         -webkit-box-flex: 1;
             -ms-flex: 1;
@@ -338,8 +339,7 @@ a {
     display: inline-block; }
     .index .product-wrapper .thumb .cover {
       width: 265px;
-      height: 300px;
-      background-image: url("http://placehold.it/265x300"); }
+      height: 300px; }
     .index .product-wrapper .thumb .category {
       padding-top: 40px;
       font-size: 16px; }
@@ -357,6 +357,10 @@ a {
     height: 400px;
     display: inline-block;
     position: relative; }
+    .index .product-wrapper .carousel.hack {
+      position: absolute;
+      top: 400px;
+      left: -1000px; }
     .index .product-wrapper .carousel .carousel-container {
       margin-left: auto;
       margin-right: auto;

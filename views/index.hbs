@@ -13,44 +13,83 @@
         <div class="swiper-button-prev swiper-button-white"></div>
     </div>
     <div class="product-wrapper">
-        <div class="thumb">
-            <div class="cover"></div>
-            <div class="category">
-                <ul>
-                    <li class="active">
-                        <a href="#">Woman</a>
-                    </li>
-                    <li>/
-                        <a href="#">Man</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="carousel">
-            <!-- Swiper -->
-            <div class="carousel-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(http://placehold.it/500x400)"></div>
+        {{#forEach productList}}
+            {{#if isFirst}}
+            <div class="thumb {{typeName}}">
+            {{else}}
+            <div class="thumb {{typeName}}" style="display:none">
+            {{/if}}
+                <div class="cover" style="background-image: url({{ ../root }}/{{imgUrl}})"></div>
+                <div class="category">
+                    <ul>
+                        {{#forEach ../productList}}
+                            {{#if isFirst}}
+                                <li class="cat-item active" data-cat="{{typeName}}">
+                                    <a href="javascript:;" onClick="changeType('{{typeName}}')">{{typeName}}</a>
+                                </li>
+                            {{else}}
+                                <li class="cat-item" data-cat="{{typeName}}">/
+                                    <a href="javascript:;" onClick="changeType('{{typeName}}')">{{typeName}}</a>
+                                </li>
+                            {{/if}}
+                        {{/forEach}}
+                    </ul>
                 </div>
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(http://placehold.it/500x400)"></div>
-                </div>
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image:url(http://placehold.it/500x400)"></div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
             </div>
-            <div class="summary">
-                <p>Man Fashion</p>
-                <p>Autumn 16/17</p>
+            {{#if isFirst}}
+            <div class="carousel {{typeName}}">
+            {{else}}
+            <div class="carousel {{typeName}} hack">
+            {{/if}}
+                <!-- Swiper -->
+                <div class="carousel-container" id="carousel-{{typeName}}">
+                    {{#forEach imgList}}
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" style="background-image:url({{ ../../root }}/{{imgUrl}})"></div>
+                        </div>
+                    {{/forEach}}
+                    <!-- Add Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="summary">
+                    <p>{{typeName}} Fashion</p>
+                    <p>{{seasonName}}</p>
+                </div>
             </div>
-        </div>
+        {{/forEach}}
     </div>
 </div>
 
 
 <script type="text/javascript">
+    function changeType(type) {
+        var thumbs = $('.thumb'),
+            carousels = $('.carousel');
+        for(var i = 0; i < thumbs.length; i++) {
+            $this = $(thumbs[i]);
+            if ($this.hasClass(type)) {
+                $this.fadeIn(200);
+            } else {
+                $this.hide();
+            }
+        }
+        for(var i = 0; i < carousels.length; i++) {
+            $this = $(carousels[i]);
+            $this.removeClass('hack');
+            if ($this.hasClass(type)) {
+                $this.fadeIn(200);
+            } else {
+                $this.hide();
+            }
+        }
+        $('.cat-item').each(function(index, item) {
+            if($(item).attr('data-cat') == type) {
+                $(item).addClass('active');
+            } else {
+                $(item).removeClass('active');
+            }
+        })
+    }
     $(function() {
         var swiperBanner = new Swiper('.banner-container', {
             pagination: '.swiper-pagination',
@@ -58,12 +97,17 @@
             nextButton: '.swiper-button-next',
             prevButton: '.swiper-button-prev',
             spaceBetween: 30,
-            effect: 'fade'
+            effect: 'fade',
+            autoplay: 2500,
+            autoplayDisableOnInteraction: false
         });
-        var swiperCarousel = new Swiper('.carousel-container', {
-            pagination: '.swiper-pagination',
-            paginationClickable: true,
-            direction: 'vertical'
-        });
+        {{#forEach productList}}
+            new Swiper('#carousel-{{typeName}}', {
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                direction: 'vertical'
+            });
+        {{/forEach}}
+
     })
 </script>

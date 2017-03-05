@@ -10,7 +10,7 @@
 }
 
 .iconfont {
-    font-family:"iconfont";
+    font-family: "iconfont";
     font-size:16px;
     font-style:normal;
 }
@@ -59,6 +59,7 @@
         @include transition("all .5s ease-in");
         &.hide {
             height: 0;
+            overflow: hidden;
             .nav{
                 @include animation("menu-hide 0s ease-in 0s 1 alternate forwards");
                 @include keyframes('menu-hide') {
@@ -138,8 +139,8 @@
         }
         .external {
             display: flex;
-            width: 200px;
-            margin-top: 40px;
+            width: 150px;
+            margin: 40px auto 0 auto;
             .link {
                 flex: 1;
                 text-align: center;
@@ -184,7 +185,7 @@
             .cover {
                 width: 265px;
                 height: 300px;
-                background-image: url("http://placehold.it/265x300");
+                // background-image: url("http://placehold.it/265x300");
             }
             .category {
                 padding-top: 40px;
@@ -213,6 +214,11 @@
             height: 400px;
             display: inline-block;
             position: relative;
+            &.hack {
+                position: absolute;
+                top: 400px;
+                left: -1000px;
+            }
             .carousel-container {
                 margin-left: auto;
                 margin-right: auto;

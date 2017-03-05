@@ -23,7 +23,7 @@ router.get('/', function(req, res) {
         //     });
         // } else {
         // }
-        console.warn(banResult.data, proResult.data)
+        // console.warn(banResult.data, proResult.data)
         var bannerPics = banResult.data,
             productList = proResult.data;
         res.render('index', {
@@ -33,8 +33,6 @@ router.get('/', function(req, res) {
             productList: productList,
             root: Constant.WEB_ROOT
         });
-
-        console.warn('xx:', banResult, proResult)
     })
 
 });
