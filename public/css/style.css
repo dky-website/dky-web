@@ -156,6 +156,9 @@ a {
   filter: Alpha(opacity=60);
   background: #fff;
   text-align: center; }
+  .bar.none-opacity {
+    background: #e5e5e5 !important;
+    filter: Alpha(opacity=100); }
   .bar .logo {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 15px;
@@ -328,7 +331,8 @@ a {
 .index .banner-container {
   width: 100%;
   height: 595px;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   .index .banner-container .swiper-slide {
     background-position: center;
     background-size: cover;
@@ -393,6 +397,18 @@ a {
       .index .product-wrapper .carousel .summary p {
         font-size: 26px;
         color: #423968; }
+
+.show {
+  margin-top: 70px; }
+  .show .banner-container {
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+    position: relative; }
+    .show .banner-container .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat; }
 
 .error {
   padding: 200px 300px;

@@ -9,6 +9,7 @@ var hbsHelpers = require('handlebars-helpers')();
 var session = require('express-session');
 
 var routes = require('./routes/index');
+var show = require('./routes/show');
 var users = require('./routes/user');
 
 var app = express();
@@ -44,6 +45,7 @@ app.use(session({
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
+app.use('/show', show);
 app.use('/users', users);
 
 /// catch 404 and forward to error handler

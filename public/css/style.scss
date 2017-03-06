@@ -26,6 +26,10 @@
     filter:Alpha(opacity=60);
     background:#fff;
     text-align: center;
+    &.none-opacity {
+        background: rgba(229, 229, 229, 1) !important;
+        filter:Alpha(opacity=100);
+    }
     .logo {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 15px;
@@ -171,6 +175,7 @@
         width: 100%;
         height: 595px;
         overflow: hidden;
+        position: relative;
         .swiper-slide {
             background-position: center;
             background-size: cover;
@@ -266,6 +271,20 @@
     }
 }
 
+.show {
+    margin-top: 70px;
+    .banner-container {
+        width: 100%;
+        height: 540px;
+        overflow: hidden;
+        position: relative;
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+}
 
 .error {
     padding: 200px 300px;

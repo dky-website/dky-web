@@ -35,6 +35,8 @@ router.get('/', function(req, res) {
         });
     }).catch(function(error) {
         res.render('error', {
+            title: '旦可韵',
+            menu: 'index',
             message: '抱歉，系统开小差了，请刷新重试.'
         });
     });
