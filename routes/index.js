@@ -33,7 +33,11 @@ router.get('/', function(req, res) {
             productList: productList,
             root: Constant.WEB_ROOT
         });
-    })
+    }).catch(function(error) {
+        res.render('error', {
+            message: '抱歉，系统开小差了，请刷新重试.'
+        });
+    });
 
 });
 

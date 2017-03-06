@@ -393,3 +393,8 @@ a {
       .index .product-wrapper .carousel .summary p {
         font-size: 26px;
         color: #423968; }
+
+.error {
+  padding: 200px 300px;
+  font-size: 15px;
+  text-align: center; }
