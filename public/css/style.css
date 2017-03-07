@@ -166,6 +166,13 @@ a {
     letter-spacing: 10px;
     height: 70px;
     line-height: 70px; }
+    .bar .logo a {
+      color: #000;
+      display: inline-block;
+      height: 100%;
+      width: 100px; }
+      .bar .logo a:hover, .bar .logo a:focus {
+        text-decoration: none; }
   .bar .nav-wrapper {
     height: 50px;
     line-height: 50px;
@@ -448,6 +455,10 @@ a {
         font-family: Arial;
         text-align: center;
         padding: 20px 0 90px 0; }
+      .show .review-list .review-item a {
+        color: #000; }
+        .show .review-list .review-item a:hover, .show .review-list .review-item a:focus {
+          text-decoration: none; }
 
 .error {
   padding: 200px 300px;

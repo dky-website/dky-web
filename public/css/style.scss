@@ -37,6 +37,16 @@
         letter-spacing: 10px;
         height: 70px;
         line-height: 70px;
+        a {
+            color: #000;
+            display: inline-block;
+            height: 100%;
+            width: 100px;
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
     }
     .nav-wrapper {
         height: 50px;
@@ -331,6 +341,13 @@
                 font-family: Arial;
                 text-align: center;
                 padding: 20px 0 90px 0;
+            }
+            a {
+                color: #000;
+                &:hover,
+                &:focus {
+                    text-decoration: none;
+                }
             }
         }
     }

@@ -30,8 +30,10 @@
     <div class="review-list">
         {{#forEach oldShowList}}
         <div class="review-item">
-            <div class="review-pic" style="background-image:url({{ ../root }}/{{ image1 }})"></div>
-            <div class="review-name">{{showSeason}}</div>
+            <a href="/show/{{id}}">
+                <div class="review-pic" style="background-image:url({{ ../root }}/{{ image1 }})"></div>
+                <div class="review-name">{{showSeason}}</div>
+            </a>
         </div>
         {{/forEach}}
     </div>
