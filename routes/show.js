@@ -8,16 +8,23 @@ router.get(['/', '/:id'], function(req, res) {
     if (showId === undefined) {
         var jobs = [];
         jobs.push(rocket.get(Constant.WEB_ROOT + '/front/banner/showBannerList'));
+        jobs.push(rocket.get(Constant.WEB_ROOT + '/front/show/showImageList'));
 
-        Promise.all([...jobs]).then(function([banResult]) {
-            var banResult = JSON.parse(banResult);
+        Promise.all([...jobs]).then(function([banResult, showResult]) {
+            var banResult = JSON.parse(banResult),
+                showResult = JSON.parse(showResult);
 
-            var bannerPics = banResult.data;
+            var bannerPics = banResult.data,
+                showData = showResult.data,
+                middleShow = showData.middleShow,
+                oldShowList = showData.oldShowList;
 
             res.render('show', {
                 title: '旦可韵 - show',
                 menu: 'show',
                 bannerPics: bannerPics,
+                middleShow: middleShow,
+                oldShowList: oldShowList,
                 root: Constant.WEB_ROOT
             });
         }).catch(function(error) {

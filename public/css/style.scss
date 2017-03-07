@@ -284,6 +284,56 @@
             background-repeat: no-repeat;
         }
     }
+    .season-name {
+        font-family: Arial;
+        font-size: 18px;
+        text-align: center;
+        padding: 80px 0 76px 0;
+    }
+    .image-list {
+        position: relative;
+        // overflow: hidden;
+        .image-container {
+            height: 400px;
+            overflow-x: hidden;
+            .swiper-slide {
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .swiper-pagination-bullets {
+                bottom: -50px !important;
+                .swiper-pagination-bullet {
+                    &.swiper-pagination-bullet-active {
+                        background: #808080;
+                    }
+                }
+            }
+        }
+    }
+    .review-title {
+        font-size: 18px;
+        text-align: center;
+        padding: 95px 0 62px 0;
+    }
+    .review-list {
+        display: flex;
+
+        .review-item {
+            flex: 0 0 33.3%;
+            .review-pic {
+                width: 256px;
+                height: 172px;
+                margin: 0 auto;
+            }
+            .review-name {
+                font-size: 18px;
+                font-family: Arial;
+                text-align: center;
+                padding: 20px 0 90px 0;
+            }
+        }
+    }
 }
 
 .error {

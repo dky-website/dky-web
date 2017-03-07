@@ -8,6 +8,33 @@
         <!-- Add Pagination -->
         <div class="swiper-pagination swiper-pagination-white"></div>
     </div>
+    <div class="season-name">
+        {{middleShow.showSeason}}
+    </div>
+    <div class="image-list">
+        <div class="image-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background-image:url({{ root }}/{{ middleShow.image1 }})"></div>
+                <div class="swiper-slide" style="background-image:url({{ root }}/{{ middleShow.image2 }})"></div>
+                <div class="swiper-slide" style="background-image:url({{ root }}/{{ middleShow.image3 }})"></div>
+                <div class="swiper-slide" style="background-image:url({{ root }}/{{ middleShow.image4 }})"></div>
+                <div class="swiper-slide" style="background-image:url({{ root }}/{{ middleShow.image5 }})"></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <div class="review-title">
+        往期回顾
+    </div>
+    <div class="review-list">
+        {{#forEach oldShowList}}
+        <div class="review-item">
+            <div class="review-pic" style="background-image:url({{ ../root }}/{{ image1 }})"></div>
+            <div class="review-name">{{showSeason}}</div>
+        </div>
+        {{/forEach}}
+    </div>
 
     <script type="text/javascript">
         $(function() {
@@ -17,6 +44,13 @@
                 spaceBetween: 30,
                 autoplay: 2500,
                 autoplayDisableOnInteraction: false
+            });
+            var swiperImage = new Swiper('.image-container', {
+                pagination: '.swiper-pagination',
+                paginationClickable: '.swiper-pagination',
+                paginationClickable: true,
+                slidesPerView: 3,
+                spaceBetween: 244
             });
         })
     </script>
