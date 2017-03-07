@@ -405,59 +405,59 @@ a {
         font-size: 26px;
         color: #423968; }
 
-.show {
+.show-page {
   margin-top: 70px; }
-  .show .banner-container {
+  .show-page .banner-container {
     width: 100%;
     height: 540px;
     overflow: hidden;
     position: relative; }
-    .show .banner-container .swiper-slide {
+    .show-page .banner-container .swiper-slide {
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat; }
-  .show .season-name {
+  .show-page .season-name {
     font-family: Arial;
     font-size: 18px;
     text-align: center;
     padding: 80px 0 76px 0; }
-  .show .image-list {
+  .show-page .image-list {
     position: relative; }
-    .show .image-list .image-container {
+    .show-page .image-list .image-container {
       height: 400px;
       overflow-x: hidden; }
-      .show .image-list .image-container .swiper-slide {
+      .show-page .image-list .image-container .swiper-slide {
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat; }
-      .show .image-list .image-container .swiper-pagination-bullets {
+      .show-page .image-list .image-container .swiper-pagination-bullets {
         bottom: -50px !important; }
-        .show .image-list .image-container .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        .show-page .image-list .image-container .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {
           background: #808080; }
-  .show .review-title {
+  .show-page .review-title {
     font-size: 18px;
     text-align: center;
     padding: 95px 0 62px 0; }
-  .show .review-list {
+  .show-page .review-list {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex; }
-    .show .review-list .review-item {
+    .show-page .review-list .review-item {
       -webkit-box-flex: 0;
           -ms-flex: 0 0 33.3%;
               flex: 0 0 33.3%; }
-      .show .review-list .review-item .review-pic {
+      .show-page .review-list .review-item .review-pic {
         width: 256px;
         height: 172px;
         margin: 0 auto; }
-      .show .review-list .review-item .review-name {
+      .show-page .review-list .review-item .review-name {
         font-size: 18px;
         font-family: Arial;
         text-align: center;
         padding: 20px 0 90px 0; }
-      .show .review-list .review-item a {
+      .show-page .review-list .review-item a {
         color: #000; }
-        .show .review-list .review-item a:hover, .show .review-list .review-item a:focus {
+        .show-page .review-list .review-item a:hover, .show-page .review-list .review-item a:focus {
           text-decoration: none; }
 
 .error {
