@@ -1,4 +1,4 @@
 module.exports = {
-    API_HOST: 'http://122.227.138.34:99',
-    WEB_ROOT: 'http://122.227.138.34:99/website-web',
+    API_HOST: 'http://60.190.63.14:99',
+    WEB_ROOT: 'http://60.190.63.14:99/website-web',
 }

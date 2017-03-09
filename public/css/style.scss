@@ -353,6 +353,71 @@
     }
 }
 
+.product-page {
+    padding: 188px 15% 63px 15%;
+    @include clearfix();
+    .left-wrapper {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+        .title {
+            font-size: 18px;
+        }
+        .type {
+            margin-top: 50px;
+            font-size: 16px;
+            ul > li {
+
+                &.active {
+                    a {
+                        color: #000;
+                    }
+                }
+                a {
+                    color: #666;
+                    &:hover,
+                    &:focus {
+                        text-decoration: none;
+                    }
+                }
+                display: inline-block;
+            }
+        }
+        .season {
+            margin-top: 16px;
+            font-size: 12px;
+            ul > li {
+
+                &.active {
+                    a {
+                        color: #000;
+                    }
+                }
+                a {
+                    color: #666;
+                    &:hover,
+                    &:focus {
+                        text-decoration: none;
+                    }
+                }
+                display: inline-block;
+            }
+        }
+        .cover {
+            margin-top: 50px;
+            width: 392px;
+            height: 294px;
+            background-repeat: no-repeat;
+            // background-image: url("http://placehold.it/265x300");
+        }
+    }
+    .right-wrapper {
+        float: left;
+        width: 50%;
+        box-sizing: border-box;
+    }
+}
+
 .error {
     padding: 200px 300px;
     font-size: 15px;

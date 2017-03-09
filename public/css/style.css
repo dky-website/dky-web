@@ -460,6 +460,51 @@ a {
         .show-page .review-list .review-item a:hover, .show-page .review-list .review-item a:focus {
           text-decoration: none; }
 
+.product-page {
+  padding: 188px 15% 63px 15%; }
+  .product-page:before, .product-page:after {
+    content: "";
+    display: table; }
+  .product-page:after {
+    clear: both; }
+  .product-page .left-wrapper {
+    float: left;
+    width: 50%;
+    box-sizing: border-box; }
+    .product-page .left-wrapper .title {
+      font-size: 18px; }
+    .product-page .left-wrapper .type {
+      margin-top: 50px;
+      font-size: 16px; }
+      .product-page .left-wrapper .type ul > li {
+        display: inline-block; }
+        .product-page .left-wrapper .type ul > li.active a {
+          color: #000; }
+        .product-page .left-wrapper .type ul > li a {
+          color: #666; }
+          .product-page .left-wrapper .type ul > li a:hover, .product-page .left-wrapper .type ul > li a:focus {
+            text-decoration: none; }
+    .product-page .left-wrapper .season {
+      margin-top: 16px;
+      font-size: 12px; }
+      .product-page .left-wrapper .season ul > li {
+        display: inline-block; }
+        .product-page .left-wrapper .season ul > li.active a {
+          color: #000; }
+        .product-page .left-wrapper .season ul > li a {
+          color: #666; }
+          .product-page .left-wrapper .season ul > li a:hover, .product-page .left-wrapper .season ul > li a:focus {
+            text-decoration: none; }
+    .product-page .left-wrapper .cover {
+      margin-top: 50px;
+      width: 392px;
+      height: 294px;
+      background-repeat: no-repeat; }
+  .product-page .right-wrapper {
+    float: left;
+    width: 50%;
+    box-sizing: border-box; }
+
 .error {
   padding: 200px 300px;
   font-size: 15px;
