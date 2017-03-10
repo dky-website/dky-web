@@ -414,7 +414,51 @@
     .right-wrapper {
         float: left;
         width: 50%;
+        height: 472px;
         box-sizing: border-box;
+        position: relative;
+        .product-container {
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+            overflow: hidden;
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+
+                /* Center slide text vertically */
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                align-items: center;
+            }
+
+
+        }
+        .swiper-pagination {
+            top: 48%;
+            right: -40px;
+            .swiper-pagination-bullet {
+                display: block;
+                background: #5e5e5e;
+                margin-bottom: 10px;
+                &.swiper-pagination-bullet-active {
+                    background: #808080;
+                }
+            }
+        }
     }
 }
 

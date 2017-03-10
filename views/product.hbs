@@ -3,33 +3,50 @@
         <div class="title">产品</div>
         <div class="type">
             <ul>
+                {{#forEach typeList}}
+                {{#if isFirst}}
                 <li class="type-item active">
-                    <a href="javascript:;">Woman</a>
+                {{else}}
+                <li class="type-item">
+                {{/if}}
+                    <a href="javascript:;">{{typeEnName}}</a>
                 </li>
-                <li class="type-item">/
-                    <a href="javascript:;">Woman</a>
-                </li>
-                <li class="type-item">/
-                    <a href="javascript:;">Woman</a>
-                </li>
+                {{/forEach}}
             </ul>
         </div>
         <div class="season">
             <ul>
+                {{#forEach seasonList}}
+                {{#if isFirst}}
                 <li class="type-item active">
-                    <a href="javascript:;">Spring 17</a>
+                {{else}}
+                <li class="type-item ">
+                {{/if}}
+                    <a href="javascript:;">{{name}}</a>
                 </li>
-                <li class="type-item">/
-                    <a href="javascript:;">Spring 17</a>
-                </li>
-                <li class="type-item">/
-                    <a href="javascript:;">Spring 17</a>
-                </li>
+                {{/forEach}}
             </ul>
         </div>
-        <div class="cover" style='background-image: url("http://placehold.it/392x294");'></div>
+        <div class="cover" style='background-image: url("{{root}}/{{firstProduct.imgUrl}}");'></div>
     </div>
     <div class="right-wrapper">
-        123
+        <div class="product-container">
+            <div class="swiper-wrapper">
+                {{#forEach firstProduct.imgList}}
+                    <div class="swiper-slide" style="background-image:url({{ ../root }}/{{ imgUrl }})"></div>
+                {{/forEach}}
+            </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-white product-pagination"></div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $(function() {
+        new Swiper('.product-container', {
+            pagination: '.product-pagination',
+            paginationClickable: true,
+            direction: 'vertical'
+        });
+    })
+</script>
