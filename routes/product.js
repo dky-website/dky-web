@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
     jobs.push(rocket.get(Constant.WEB_ROOT + '/front/product/querySeasonList'));
     jobs.push(rocket.get(Constant.WEB_ROOT + '/front/product/queryProduct'));
     Promise.all([...jobs]).then(function([typeResult, seasonResult, productResult]) {
-        console.warn(typeResult, seasonResult, 'xxx')
+        //console.warn(typeResult, seasonResult, 'xxx')
         var typeResult = JSON.parse(typeResult),
             seasonResult = JSON.parse(seasonResult),
             productResult= JSON.parse(productResult);

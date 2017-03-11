@@ -2,29 +2,27 @@
     <div class="left-wrapper">
         <div class="title">产品</div>
         <div class="type">
-            <ul>
-                {{#forEach typeList}}
-                {{#if isFirst}}
-                <li class="type-item active">
-                {{else}}
-                <li class="type-item">
-                {{/if}}
-                    <a href="javascript:;">{{typeEnName}}</a>
-                </li>
-                {{/forEach}}
+            <ul id="type-list">
+                {{#forEach typeList}} {{#if isFirst}}
+                <li class="type-item active" data-type="{{id}}">
+                    {{else}}
+                    <li class="type-item" data-type="{{id}}">
+                        {{/if}}
+                        <a href="javascript:;">{{typeEnName}}</a>
+                    </li>
+                    {{/forEach}}
             </ul>
         </div>
         <div class="season">
-            <ul>
-                {{#forEach seasonList}}
-                {{#if isFirst}}
-                <li class="type-item active">
-                {{else}}
-                <li class="type-item ">
-                {{/if}}
-                    <a href="javascript:;">{{name}}</a>
-                </li>
-                {{/forEach}}
+            <ul id="season-list">
+                {{#forEach seasonList}} {{#if isFirst}}
+                <li class="season-item active" data-season="{{type}}">
+                    {{else}}
+                    <li class="season-item " data-season="{{type}}">
+                        {{/if}}
+                        <a href="javascript:;">{{name}}</a>
+                    </li>
+                    {{/forEach}}
             </ul>
         </div>
         <div class="cover" style='background-image: url("{{root}}/{{firstProduct.imgUrl}}");'></div>
@@ -33,20 +31,35 @@
         <div class="product-container">
             <div class="swiper-wrapper">
                 {{#forEach firstProduct.imgList}}
-                    <div class="swiper-slide" style="background-image:url({{ ../root }}/{{ imgUrl }})"></div>
+                <div class="swiper-slide" style="background-image:url({{ ../root }}/{{ imgUrl }})"></div>
                 {{/forEach}}
             </div>
         </div>
         <div class="swiper-pagination swiper-pagination-white product-pagination"></div>
     </div>
 </div>
-
 <script type="text/javascript">
-    $(function() {
-        new Swiper('.product-container', {
-            pagination: '.product-pagination',
-            paginationClickable: true,
-            direction: 'vertical'
+$(function() {
+    new Swiper('.product-container', {
+        pagination: '.product-pagination',
+        paginationClickable: true,
+        direction: 'vertical'
+    });
+    $('#type-list').delegate('li', 'click', function() {
+        var typeId = $(this).attr('data-type'),
+            seasonId = $('.season-item.active').attr('data-season');
+        $.ajax({
+            type: 'get',
+            url: '{{root}}/front/product/queryProduct?type=' + typeId + '&season=' + seasonId,
+            dataType: 'jsonp',
+            jsonp: "jsoncallback",
+            success: function(data) {
+                alert(data);
+            },
+            error: function() {
+                alert('fail');
+            }
         });
     })
+})
 </script>
