@@ -1,4 +1,4 @@
-<link href="//cdn.bootcss.com/fancybox/2.1.4/jquery.fancybox.css" rel="stylesheet">
+<link href="/css/jquery.fancybox.min.css" rel="stylesheet">
 <div class="product-page">
     <div class="left-wrapper">
         <div class="title">产品</div>
@@ -16,14 +16,15 @@
         </div>
         <div class="season">
             <ul id="season-list">
-                {{#forEach seasonList}} {{#if isFirst}}
-                <li class="season-item active" data-season="{{type}}">
-                    {{else}}
-                    <li class="season-item " data-season="{{type}}">
-                        {{/if}}
-                        <a href="javascript:;">{{name}}</a>
-                    </li>
-                    {{/forEach}}
+                {{#forEach seasonList}}
+                {{#if isFirst}}
+                <li class="season-item active" data-season="{{id}}">
+                {{else}}
+                <li class="season-item " data-season="{{id}}">
+                {{/if}}
+                    <a href="javascript:;">{{name}}</a>
+                </li>
+                {{/forEach}}
             </ul>
         </div>
         <a id="cover-prew" href="{{root}}/{{firstProduct.imgUrl}}">
@@ -41,10 +42,10 @@
         <div class="swiper-pagination swiper-pagination-white product-pagination"></div>
     </div>
 </div>
-<script src="//cdn.bootcss.com/fancybox/2.1.4/jquery.fancybox.js"></script>
+<script src="/js/jquery.fancybox.min.js"></script>
 <script type="text/javascript">
 $(function() {
-    new Swiper('.product-container', {
+    var productSwiper = new Swiper('.product-container', {
         pagination: '.product-pagination',
         paginationClickable: true,
         direction: 'vertical',
@@ -58,14 +59,24 @@ $(function() {
     });
     $('#type-list').delegate('li', 'click', function() {
         var typeId = $(this).attr('data-type');
-        // seasonId = $('.season-item.active').attr('data-season');
+        $('.type-item.active').removeClass('active');
+        $(this).addClass('active');
         $.ajax({
             type: 'get',
             url: '{{root}}/front/product/querySeasonList?type=' + typeId,
             dataType: 'jsonp',
             jsonp: "jsoncallback",
             success: function(data) {
-                alert('season list=' + JSON.stringify(data));
+                var seasonList = data.data,
+                    seaContont = '';
+                $.each(seasonList, function(idx, season) {
+                    if (!idx) {
+                        seaContont = '<li class="season-item active" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '</a></li>'
+                    } else {
+                        seaContont += '<li class="season-item" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '</a></li>'
+                    }
+                })
+                $('#season-list').html(seaContont);
             },
             error: function() {
                 alert('fail');
@@ -73,11 +84,25 @@ $(function() {
         });
         $.ajax({
             type: 'get',
-            url: '{{root}}/front/product/queryProduct?type=' + typeId + '&season=' + seasonId,
+            url: '{{root}}/front/product/queryProduct?type=' + typeId,
             dataType: 'jsonp',
             jsonp: "jsoncallback",
-            success: function(data) {
-                alert(data);
+            success: function(result) {
+                var data = result.data;
+                if (result.success) {
+                    $('#cover-prew').attr('href', '{{root}}/' + data.imgUrl)
+                    $('.cover').css('background-image', data.imgUrl)
+
+                    // image list
+                    // $('.right-wrapper').empty();
+                    productSwiper.removeAllSlides();
+                    $.each(data.imgList, function(idx, obj) {
+                        productSwiper.appendSlide('<div class="swiper-slide" style="background-image:url({{ root }}/' + obj.imgUrl + '"></div>')
+                    })
+                } else {
+                    alert('该类目下无产品.')
+                }
+
             },
             error: function() {
                 alert('fail');
@@ -92,8 +117,20 @@ $(function() {
             url: '{{root}}/front/product/queryProduct?type=' + typeId + '&season=' + seasonId,
             dataType: 'jsonp',
             jsonp: "jsoncallback",
-            success: function(data) {
-                alert(data);
+            success: function(result) {
+                var data = result.data;
+                if (result.success) {
+                    $('#cover-prew').attr('href', 'url({{root}}/' + data.imgUrl + ')')
+                    $('.cover').css('background-image', data.imgUrl)
+                    // image list
+                    // $('.right-wrapper').empty();
+                    productSwiper.removeAllSlides();
+                    $.each(data.imgList, function(idx, obj) {
+                        productSwiper.appendSlide('<div class="swiper-slide" style="background-image:url({{ root }}/' + obj.imgUrl + '"></div>')
+                    })
+                } else {
+                    alert('该季节下无产品.')
+                }
             },
             error: function() {
                 alert('fail');
