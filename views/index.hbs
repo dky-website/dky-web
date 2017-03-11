@@ -105,7 +105,9 @@
             new Swiper('#carousel-{{typeName}}', {
                 pagination: '.swiper-pagination',
                 paginationClickable: true,
-                direction: 'vertical'
+                direction: 'vertical',
+                grabCursor: true,
+                mousewheelControl: true
             });
         {{/forEach}}
 

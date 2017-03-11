@@ -350,7 +350,8 @@ a {
     display: inline-block; }
     .index .product-wrapper .thumb .cover {
       width: 265px;
-      height: 300px; }
+      height: 300px;
+      background-size: cover; }
     .index .product-wrapper .thumb .category {
       padding-top: 40px;
       font-size: 16px; }
@@ -499,7 +500,8 @@ a {
       margin-top: 50px;
       width: 392px;
       height: 294px;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      background-size: cover; }
   .product-page .right-wrapper {
     float: left;
     width: 50%;
