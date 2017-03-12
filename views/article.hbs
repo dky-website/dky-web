@@ -1,4 +1,4 @@
-
+<script src="/libs/jquery-placeholder/jquery.placeholder.min.js"></script>
 <div class="article-page">
     <div class="menu">
         <div class="title">{{typeName}}</div>
@@ -19,12 +19,28 @@
     </div>
     <div class="container">
         <div class="article"></div>
-        <div class="thumb"></div>
+        <div class="thumb">
+            {{!-- <form class="suggest">
+                <div>
+                    <input id="name" type="input" placeholder="name" autocomplete="off"></input>
+                </div>
+                <div>
+                    <input id="title" type="input" placeholder="title" autocomplete="off"></input>
+                </div>
+                <div>
+                    <textarea id="content" placeholder="content" autocomplete="off"></textarea>
+                </div>
+                <div class="control-wrapper">
+                    <input type="button" id="btnSend" class="btn btn-default" value="Send"></input>
+                </div>
+            </form> --}}
+        </div>
     </div>
 </div>
 <script src="/js/jquery.ba-hashchange.js"></script>
 <script type="text/javascript">
     $(function() {
+        $('input, textarea').placeholder();
         $(window).hashchange( function(){
             var hash = location.hash;
 
@@ -61,8 +77,50 @@
         $("ul").delegate("li", "click", function() {
             // renderDetail($(this).attr('data-id'))
         });
+        $(".thumb").delegate('#btnSend', 'click',function() {
+            var name = $("#name").val(),
+                title = $("#title").val(),
+                content = $('#content').val();
 
+            $.ajax({
+                type: 'get',
+                url: '{{root}}/front/suggest/addSuggest?name' + '=' + name + '&title=' + title + '&content=' + content,
+                dataType: 'jsonp',
+                jsonp: "jsoncallback",
+                success: function(result) {
+                    // alert('提交成功')
+                    console.warn(result)
+                },
+                error: function() {
+                    alert('保存失败，请稍后再试.');
+                }
+            })
+        })
     })
+    function renderThumb(type, imgUrl) {
+        if (type == '2') {
+            $('.thumb').css('background-image', null);
+            $('.thumb').html(
+                '<form class="suggest">' +
+                    '<div>' +
+                        '<input id="name" type="input" placeholder="name" autocomplete="off"></input>' +
+                    '</div>' +
+                    '<div>' +
+                        '<input id="title" type="input" placeholder="title" autocomplete="off"></input>' +
+                    '</div>' +
+                    '<div>' +
+                        '<textarea id="content" placeholder="content" autocomplete="off"></textarea>' +
+                    '</div>' +
+                    '<div class="control-wrapper">' +
+                        '<input type="button" id="btnSend" class="btn btn-default" value="Send"></input>' +
+                    '</div>' +
+                '</form>'
+            );
+        } else {
+            $('.thumb').empty();
+            $('.thumb').css('background-image', 'url("{{root}}' + '/' + imgUrl + '")')
+        }
+    }
     function renderDetail(id) {
         var context = JSON.parse($('#context').val());
 
@@ -75,9 +133,11 @@
                         }, 100)
                     }
                 })
+
                 // render
                 $('.article').html(context[i].content);
-                $('.thumb').css('background-image', 'url("{{root}}' + '/' + context[i].imgUrl + '")')
+                // renderThumb('2' ,context[i].imgUrl);
+                renderThumb(context[i].classify ,context[i].imgUrl);
                 break;
             } else {
                 if (context[i].hasChildren) {
@@ -99,7 +159,7 @@
                             })
                             // render
                             $('.article').html(context[i].children[j].content);
-                            $('.thumb').css('background-image', 'url("{{root}}' + '/' + context[i].children[j].imgUrl + '")');
+                            renderThumb(context[i].children[j].classify ,context[i].children[j].imgUrl);
                             break;
                         }
                     }

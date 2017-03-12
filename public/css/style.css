@@ -594,6 +594,48 @@ a {
           -ms-flex: 1 1 60%;
               flex: 1 1 60%;
       height: 300px; }
+      .article-page .container .thumb .suggest input, .article-page .container .thumb .suggest textarea {
+        color: #000; }
+      .article-page .container .thumb .suggest .placeholder {
+        color: #aaa; }
+      .article-page .container .thumb .suggest #name, .article-page .container .thumb .suggest #title, .article-page .container .thumb .suggest #content {
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: #444;
+        width: 100%;
+        margin-bottom: 10px; }
+      .article-page .container .thumb .suggest #content {
+        height: 100px; }
+      .article-page .container .thumb .suggest .control-wrapper {
+        text-align: right; }
+
+.btn {
+  display: inline-block;
+  padding: 3px 24px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px; }
+
+.btn-default {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc; }
 
 .error {
   padding: 200px 300px;

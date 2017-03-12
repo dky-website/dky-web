@@ -42,7 +42,7 @@ router.get('/:type', function(req, res) {
                 });
             } else {
                 res.render('error', {
-                    message: '抱歉，' + typeName + '中暂时还未录入文章.'
+                    message: '抱歉，"' + typeName + '"中暂时还未录入文章.'
                 });
             }
         } else {
