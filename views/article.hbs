@@ -1,1 +1,111 @@
-common
+
+<div class="article-page">
+    <div class="menu">
+        <div class="title">{{typeName}}</div>
+        {{#forEach menuList}}
+            <ul>
+                {{#if hasChildren}}
+                    <a href='javascript:;' class="first-level" data-has-child='true' data-id="{{id}}">{{menuName}}</a>
+                    {{#forEach children}}
+                    <li class="second-level" data-id="{{id}}" data-parent="{{ ../id }}">
+                        <a href="#{{id}}">{{menuName}}</a>
+                    </li>
+                    {{/forEach}}
+                {{else}}
+                    <a href='#{{id}}' class="first-level" data-has-child='false' data-id="{{id}}">{{menuName}}</a>
+                {{/if}}
+            </ul>
+        {{/forEach}}
+    </div>
+    <div class="container">
+        <div class="article"></div>
+        <div class="thumb"></div>
+    </div>
+</div>
+<script src="/js/jquery.ba-hashchange.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $(window).hashchange( function(){
+            var hash = location.hash;
+
+            var context = JSON.parse($('#context').val());
+            if (hash == '' && context.length > 0) {
+                renderDetail(context[0].id);
+            }
+
+            renderDetail(hash.replace(/[^0-9]/ig,""))
+        })
+        $(window).hashchange();
+        $(".first-level").click(function() {
+            var dataId = $(this).attr('data-id');
+            if ($(this).attr('data-has-child') == 'true') {
+                if ($(this).attr('data-id') != $('.first-level.active').attr('data-id')) {
+                    $('.first-level.active').removeClass('active').nextAll("li").toggle("hide");
+                    $('.second-level.active').removeClass('active');
+                    var aNode = $(this);
+                    var lis = aNode.nextAll("li");
+                    aNode.addClass('active');
+                    aNode.next().addClass('active');
+                    lis.toggle("show");
+                    location.hash = aNode.next().attr('data-id');
+                    // renderDetail(aNode.next().attr('data-id'))
+                }
+            } else {
+                $('.first-level.active').removeClass('active').nextAll("li").toggle("hide");
+                $('.second-level.active').removeClass('active');
+                $(this).addClass('active');
+                // renderDetail(dataId)
+            }
+
+        })
+        $("ul").delegate("li", "click", function() {
+            // renderDetail($(this).attr('data-id'))
+        });
+
+    })
+    function renderDetail(id) {
+        var context = JSON.parse($('#context').val());
+
+        for (var i = 0; i < context.length; i++) {
+            if (context[i].id == id) {
+                $('.first-level').each(function(index, node) {
+                    if ($(node).attr('data-id') == id) {
+                        setTimeout(function() {
+                            $(node).trigger('click');
+                        }, 100)
+                    }
+                })
+                // render
+                $('.article').html(context[i].content);
+                $('.thumb').css('background-image', 'url("{{root}}' + '/' + context[i].imgUrl + '")')
+                break;
+            } else {
+                if (context[i].hasChildren) {
+                    for (var j = 0; j < context[i].children.length; j++) {
+                        if (context[i].children[j].id == id) {
+                            $('.second-level').each(function(index, node) {
+                                if ($(node).attr('data-id') == id) {
+                                    // 展开主菜单
+                                    $('.first-level').each(function(index, parent) {
+                                        if ($(parent).attr('data-id') == $(node).attr('data-parent')) {
+                                            setTimeout(function() {
+                                                $(parent).click();
+                                            }, 100)
+
+                                        }
+                                    })
+                                    $(node).trigger("click");
+                                }
+                            })
+                            // render
+                            $('.article').html(context[i].children[j].content);
+                            $('.thumb').css('background-image', 'url("{{root}}' + '/' + context[i].children[j].imgUrl + '")');
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+<input id="context" type="hidden" value="{{menuListStr}}"></input>
