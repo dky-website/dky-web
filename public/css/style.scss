@@ -534,6 +534,7 @@
         .thumb {
             flex: 1 1 60%;
             height: 300px;
+            background-size: cover;
             .suggest {
                 input, textarea { color: #000; }
                 .placeholder { color: #aaa; }
