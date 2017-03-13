@@ -20,42 +20,48 @@
             <div class="thumb {{typeName}}" style="display:none">
             {{/if}}
                 <div class="cover" style="background-image: url({{ ../root }}/{{imgUrl}})"></div>
-                <div class="category">
-                    <ul>
-                        {{#forEach ../productList}}
-                            {{#if isFirst}}
-                                <li class="cat-item active" data-cat="{{typeName}}">
-                                    <a href="javascript:;" onClick="changeType('{{typeName}}')">{{typeName}}</a>
-                                </li>
-                            {{else}}
-                                <li class="cat-item" data-cat="{{typeName}}">/
-                                    <a href="javascript:;" onClick="changeType('{{typeName}}')">{{typeName}}</a>
-                                </li>
-                            {{/if}}
+                <div class="category-wrapper">
+                    <div class="category">
+                        <ul>
+                            {{#forEach ../productList}}
+                                {{#if isFirst}}
+                                    <li class="cat-item active" data-cat="{{typeName}}">
+                                        <a href="javascript:void(0);" onClick="changeType('{{typeName}}')">{{typeName}}</a>
+                                    </li>
+                                {{else}}
+                                    <li class="cat-item" data-cat="{{typeName}}">/
+                                        <a href="javascript:void(0);" onClick="changeType('{{typeName}}')">{{typeName}}</a>
+                                    </li>
+                                {{/if}}
+                            {{/forEach}}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="carousel-wrapper">
+                {{#if isFirst}}
+                <div class="carousel {{typeName}}">
+                {{else}}
+                <div class="carousel {{typeName}} hack">
+                {{/if}}
+                    <!-- Swiper -->
+                    <div class="carousel-container" id="carousel-{{typeName}}">
+                        {{#forEach imgList}}
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide" style="background-image:url({{ ../../root }}/{{imgUrl}})"></div>
+                            </div>
                         {{/forEach}}
-                    </ul>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="summary">
+                        <p>{{typeName}} Fashion</p>
+                        <p>{{seasonName}}</p>
+                    </div>
                 </div>
             </div>
-            {{#if isFirst}}
-            <div class="carousel {{typeName}}">
-            {{else}}
-            <div class="carousel {{typeName}} hack">
-            {{/if}}
-                <!-- Swiper -->
-                <div class="carousel-container" id="carousel-{{typeName}}">
-                    {{#forEach imgList}}
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide" style="background-image:url({{ ../../root }}/{{imgUrl}})"></div>
-                        </div>
-                    {{/forEach}}
-                    <!-- Add Pagination -->
-                    <div class="swiper-pagination"></div>
-                </div>
-                <div class="summary">
-                    <p>{{typeName}} Fashion</p>
-                    <p>{{seasonName}}</p>
-                </div>
-            </div>
+
         {{/forEach}}
     </div>
 </div>
@@ -77,8 +83,10 @@
             $this = $(carousels[i]);
             $this.removeClass('hack');
             if ($this.hasClass(type)) {
+                $this.parent().show();
                 $this.fadeIn(200);
             } else {
+                $this.parent().hide();
                 $this.hide();
             }
         }

@@ -1,81 +1,63 @@
 <div class="footer">
     <div class="link-section">
         <div class="title">
-            关于我们
+            {{!-- 关于我们 --}}
+            {{menuAbout.title}}
         </div>
         <div class="devide"></div>
+        {{#forEach menuAbout.subMenu}}
         <div class="link">
-            <a href="/article/1#1">公司简介</a>
+            <a href="{{url}}">{{name}}</a>
         </div>
-        <div class="link">
-            <a href="/article/1#3">团队</a>
-        </div>
-        <div class="link">
-            <a href="#">品牌战略</a>
-        </div>
+        {{/forEach}}
     </div>
     <div class="link-section">
         <div class="title">
-            产品
+            {{!-- 产品 --}}
+            {{menuProduct.title}}
         </div>
         <div class="devide"></div>
+        {{#forEach menuProduct.subMenu}}
         <div class="link">
-            <a href="#">精选</a>
+            <a href="{{url}}">{{name}}</a>
         </div>
-        <div class="link">
-            <a href="#">男装</a>
-        </div>
-        <div class="link">
-            <a href="#">女装</a>
-        </div>
-        <div class="link">
-            <a href="#">童装</a>
-        </div>
+        {{/forEach}}
     </div>
     <div class="link-section">
         <div class="title">
-            SHOW
+            {{!-- SHOW --}}
+            {{menuShow.title}}
         </div>
         <div class="devide"></div>
+        {{#forEach menuShow.subMenu}}
         <div class="link">
-            <a href="#">2016 Summer</a>
+            <a href="{{url}}">{{name}}</a>
         </div>
-        <div class="link">
-            <a href="#">2016 Spring</a>
-        </div>
+        {{/forEach}}
     </div>
     <div class="link-section">
         <div class="title">
-            服务
+            {{!-- 服务 --}}
+            {{menuService.title}}
         </div>
         <div class="devide"></div>
+        {{#forEach menuService.subMenu}}
         <div class="link">
-            <a href="#">代加工</a>
+            <a href="{{url}}">{{name}}</a>
         </div>
-        <div class="link">
-            <a href="#">团购业务</a>
-        </div>
-        <div class="link">
-            <a href="#">个性化定制</a>
-        </div>
+        {{/forEach}}
     </div>
     <div class="link-section">
         <div class="title">
-            联络
+            {{!-- 联络 --}}
+            {{menuContact.title}}
         </div>
         <div class="devide"></div>
+        {{#forEach menuService.subMenu}}
         <div class="link">
-            <a href="#">加入我们</a>
+            <a href="{{url}}">{{name}}</a>
         </div>
-        <div class="link">
-            <a href="#">加盟我们</a>
-        </div>
-        <div class="link">
-            <a href="#">店铺方位</a>
-        </div>
-        <div class="link">
-            <a href="#">投诉建议</a>
-        </div>
+        {{/forEach}}
     </div>
     <div class="contact-section">
         <div class="qr-code"></div>

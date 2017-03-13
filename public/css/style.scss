@@ -197,85 +197,95 @@
         padding: 158px 160px;
         .thumb {
             display: inline-block;
+            width: 35%;
             .cover {
                 width: 265px;
                 height: 300px;
+                margin: 0 auto;
                 background-size: cover;
                 // background-image: url("http://placehold.it/265x300");
             }
-            .category {
-                padding-top: 40px;
-                font-size: 16px;
-                ul > li {
+            .category-wrapper {
+                .category {
+                    padding-top: 40px;
+                    font-size: 16px;
+                    margin: 0 auto;
+                    width: 265px;
+                    ul > li {
 
-                    &.active {
+                        &.active {
+                            a {
+                                color: #000;
+                            }
+                        }
                         a {
-                            color: #000;
+                            color: #666;
+                            &:hover,
+                            &:focus {
+                                text-decoration: none;
+                            }
                         }
+                        display: inline-block;
                     }
-                    a {
-                        color: #666;
-                        &:hover,
-                        &:focus {
-                            text-decoration: none;
-                        }
-                    }
-                    display: inline-block;
                 }
             }
-        }
-        .carousel {
-            margin-left: 195px;
-            width: 500px;
-            height: 400px;
-            display: inline-block;
-            position: relative;
-            &.hack {
-                position: absolute;
-                top: 400px;
-                left: -1000px;
-            }
-            .carousel-container {
-                margin-left: auto;
-                margin-right: auto;
-                position: relative;
-                height: 100%;
-                width: 100%;
-                z-index: 1;
-                overflow: hidden;
-                .swiper-slide {
-                    text-align: center;
-                    font-size: 18px;
-                    background: #fff;
 
-                    /* Center slide text vertically */
-                    display: -webkit-box;
-                    display: -ms-flexbox;
-                    display: -webkit-flex;
-                    display: flex;
-                    -webkit-box-pack: center;
-                    -ms-flex-pack: center;
-                    -webkit-justify-content: center;
-                    justify-content: center;
-                    -webkit-box-align: center;
-                    -ms-flex-align: center;
-                    -webkit-align-items: center;
-                    align-items: center;
+        }
+        .carousel-wrapper {
+            width: 64%;
+            display: inline-block;
+            .carousel {
+                width: 500px;
+                height: 400px;
+                margin: 0 auto;
+                position: relative;
+                &.hack {
+                    position: absolute;
+                    top: 400px;
+                    left: -1000px;
                 }
-                .swiper-pagination-bullet {
-                    &.swiper-pagination-bullet-active {
-                        background: #808080;
+                .carousel-container {
+                    margin-left: auto;
+                    margin-right: auto;
+                    position: relative;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 1;
+                    overflow: hidden;
+                    .swiper-slide {
+                        text-align: center;
+                        font-size: 18px;
+                        background: #fff;
+
+                        /* Center slide text vertically */
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: -webkit-flex;
+                        display: flex;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        -webkit-justify-content: center;
+                        justify-content: center;
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        -webkit-align-items: center;
+                        align-items: center;
+                    }
+                    .swiper-pagination-bullet {
+                        &.swiper-pagination-bullet-active {
+                            background: #808080;
+                        }
                     }
                 }
-            }
-            .summary {
-                position: absolute;
-                top: 60px;
-                left: -80px;
-                z-index: 1;
-                p {
-                    font-size: 26px;
-                    color: #423968;
+                .summary {
+                    position: absolute;
+                    top: 60px;
+                    left: -80px;
+                    z-index: 1;
+                    p {
+                        font-size: 26px;
+                        color: #423968;
+                    }
                 }
             }
         }

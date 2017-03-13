@@ -347,64 +347,70 @@ a {
 .index .product-wrapper {
   padding: 158px 160px; }
   .index .product-wrapper .thumb {
-    display: inline-block; }
+    display: inline-block;
+    width: 35%; }
     .index .product-wrapper .thumb .cover {
       width: 265px;
       height: 300px;
+      margin: 0 auto;
       background-size: cover; }
-    .index .product-wrapper .thumb .category {
+    .index .product-wrapper .thumb .category-wrapper .category {
       padding-top: 40px;
-      font-size: 16px; }
-      .index .product-wrapper .thumb .category ul > li {
+      font-size: 16px;
+      margin: 0 auto;
+      width: 265px; }
+      .index .product-wrapper .thumb .category-wrapper .category ul > li {
         display: inline-block; }
-        .index .product-wrapper .thumb .category ul > li.active a {
+        .index .product-wrapper .thumb .category-wrapper .category ul > li.active a {
           color: #000; }
-        .index .product-wrapper .thumb .category ul > li a {
+        .index .product-wrapper .thumb .category-wrapper .category ul > li a {
           color: #666; }
-          .index .product-wrapper .thumb .category ul > li a:hover, .index .product-wrapper .thumb .category ul > li a:focus {
+          .index .product-wrapper .thumb .category-wrapper .category ul > li a:hover, .index .product-wrapper .thumb .category-wrapper .category ul > li a:focus {
             text-decoration: none; }
-  .index .product-wrapper .carousel {
-    margin-left: 195px;
-    width: 500px;
-    height: 400px;
-    display: inline-block;
-    position: relative; }
-    .index .product-wrapper .carousel.hack {
-      position: absolute;
-      top: 400px;
-      left: -1000px; }
-    .index .product-wrapper .carousel .carousel-container {
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      height: 100%;
-      width: 100%;
-      z-index: 1;
-      overflow: hidden; }
-      .index .product-wrapper .carousel .carousel-container .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center; }
-      .index .product-wrapper .carousel .carousel-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
-        background: #808080; }
-    .index .product-wrapper .carousel .summary {
-      position: absolute;
-      top: 60px;
-      left: -80px;
-      z-index: 1; }
-      .index .product-wrapper .carousel .summary p {
-        font-size: 26px;
-        color: #423968; }
+  .index .product-wrapper .carousel-wrapper {
+    width: 64%;
+    display: inline-block; }
+    .index .product-wrapper .carousel-wrapper .carousel {
+      width: 500px;
+      height: 400px;
+      margin: 0 auto;
+      position: relative; }
+      .index .product-wrapper .carousel-wrapper .carousel.hack {
+        position: absolute;
+        top: 400px;
+        left: -1000px; }
+      .index .product-wrapper .carousel-wrapper .carousel .carousel-container {
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        overflow: hidden; }
+        .index .product-wrapper .carousel-wrapper .carousel .carousel-container .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center; }
+        .index .product-wrapper .carousel-wrapper .carousel .carousel-container .swiper-pagination-bullet.swiper-pagination-bullet-active {
+          background: #808080; }
+      .index .product-wrapper .carousel-wrapper .carousel .summary {
+        position: absolute;
+        top: 60px;
+        left: -80px;
+        z-index: 1; }
+        .index .product-wrapper .carousel-wrapper .carousel .summary p {
+          font-size: 26px;
+          color: #423968; }
 
 .show-page {
   margin-top: 70px; }
