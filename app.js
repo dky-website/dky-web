@@ -84,10 +84,10 @@ app.use(function(req, res, next) {
                 }; break;
                 case '2': {
                     // 产品
-                    menuProduct.subMenu.push({name: menu.menuName, url: '/product/' + menu.id})
+                    menuProduct.subMenu.push({name: menu.menuName, url: '/product#' + menu.menuName})
                     if (menu.hasChildren) {
                         menu.children.map(function(subMenu, idx) {
-                            var url = '/product/' + subMenu.id;
+                            var url = '/product#' + subMenu.menuName;
                             menuProduct.subMenu.push({name: subMenu.menuName, url: url})
                         })
                     }

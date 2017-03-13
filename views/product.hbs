@@ -4,14 +4,15 @@
         <div class="title">产品</div>
         <div class="type">
             <ul id="type-list">
-                {{#forEach typeList}} {{#if isFirst}}
-                <li class="type-item active" data-type="{{id}}">
+                {{#forEach typeList}}
+                    {{#if isFirst}}
+                    <li class="type-item active" data-type="{{id}}" data-cn="{{typeName}}">
                     {{else}}
-                    <li class="type-item" data-type="{{id}}">
-                        {{/if}}
+                    <li class="type-item" data-type="{{id}}" data-cn="{{typeName}}">
+                    {{/if}}
                         <a href="javascript:;">{{typeEnName}}</a>
                     </li>
-                    {{/forEach}}
+                {{/forEach}}
             </ul>
         </div>
         <div class="season">
@@ -35,13 +36,14 @@
         <div class="product-container">
             <div class="swiper-wrapper">
                 {{#forEach firstProduct.imgList}}
-                <div class="swiper-slide" style="background-image:url({{ ../root }}/{{ imgUrl }})"></div>
+                <div class="swiper-slide" style="background-size: contain;background-image:url({{ ../root }}/{{ imgUrl }})"></div>
                 {{/forEach}}
             </div>
         </div>
         <div class="swiper-pagination swiper-pagination-white product-pagination"></div>
     </div>
 </div>
+<script src="/js/jquery.ba-hashchange.js"></script>
 <script src="/js/jquery.fancybox.min.js"></script>
 <script type="text/javascript">
 $(function() {
@@ -137,9 +139,17 @@ $(function() {
             }
         });
     })
+    $(window).hashchange( function(){
+        var hash = location.hash,
+            cnName = hash.replace('#', '');
 
-    function handleData(result) {
-
-    }
+        $('.type-item').each(function(index, item) {
+            var cn = $(this).attr('data-cn');
+            if (cnName == cn) {
+                $(this).trigger('click');
+            }
+        })
+    })
+    $(window).hashchange();
 })
 </script>

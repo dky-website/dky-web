@@ -4,7 +4,7 @@ var rocket = require('../utils/rocket');
 var router = express.Router();
 
 /* GET product listing. */
-router.get('/', function(req, res) {
+router.get(['/', '/:cnName'], function(req, res) {
     var jobs = [];
     jobs.push(rocket.get(Constant.WEB_ROOT + '/front/product/queryProductType'));
     jobs.push(rocket.get(Constant.WEB_ROOT + '/front/product/querySeasonList'));
