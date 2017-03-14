@@ -311,7 +311,8 @@ a {
       margin: 0 auto;
       height: 100px;
       width: 100px;
-      background-image: url("http://placehold.it/100x100"); }
+      background-size: cover;
+      background-image: url("/img/QR.jpg"); }
     .footer .contact-section .external {
       display: -webkit-box;
       display: -ms-flexbox;
