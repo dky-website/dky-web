@@ -98,7 +98,7 @@
         })
     })
     function renderThumb(type, imgUrl) {
-        if (type == '2') {
+        if (type == '3') {
             $('.thumb').css('background-image', null);
             $('.thumb').html(
                 '<form class="suggest">' +
@@ -116,7 +116,7 @@
                     '</div>' +
                 '</form>'
             );
-        } else {
+        } else if (type == '1') {
             $('.thumb').empty();
             $('.thumb').css('background-image', 'url("{{root}}' + '/' + imgUrl + '")')
         }

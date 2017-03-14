@@ -75,51 +75,51 @@ app.use(function(req, res, next) {
                 case '1': {
                     // 关于我们
                     menuAbout.subMenu.push({name: menu.menuName, url: '/article/1#' + menu.id})
-                    if (menu.hasChildren) {
-                        menu.children.map(function(subMenu, idx) {
-                            var url = '/article/1#' + subMenu.id;
-                            menuAbout.subMenu.push({name: subMenu.menuName, url: url})
-                        })
-                    }
+                    // if (menu.hasChildren) {
+                    //     menu.children.map(function(subMenu, idx) {
+                    //         var url = '/article/1#' + subMenu.id;
+                    //         menuAbout.subMenu.push({name: subMenu.menuName, url: url})
+                    //     })
+                    // }
                 }; break;
                 case '2': {
                     // 产品
                     menuProduct.subMenu.push({name: menu.menuName, url: '/product#' + menu.menuName})
-                    if (menu.hasChildren) {
-                        menu.children.map(function(subMenu, idx) {
-                            var url = '/product#' + subMenu.menuName;
-                            menuProduct.subMenu.push({name: subMenu.menuName, url: url})
-                        })
-                    }
+                    // if (menu.hasChildren) {
+                    //     menu.children.map(function(subMenu, idx) {
+                    //         var url = '/product#' + subMenu.menuName;
+                    //         menuProduct.subMenu.push({name: subMenu.menuName, url: url})
+                    //     })
+                    // }
                 }; break;
                 case '3': {
                     // show
                     menuShow.subMenu.push({name: menu.menuName, url: ('/show/' + menu.id)})
-                    if (menu.hasChildren) {
-                        menu.children.map(function(subMenu, idx) {
-                            menuShow.subMenu.push({name: subMenu.menuName, url: ('/show/' + subMenu.id)})
-                        })
-                    }
+                    // if (menu.hasChildren) {
+                    //     menu.children.map(function(subMenu, idx) {
+                    //         menuShow.subMenu.push({name: subMenu.menuName, url: ('/show/' + subMenu.id)})
+                    //     })
+                    // }
                 }; break;
                 case '4': {
                     // 服务
                     menuService.subMenu.push({name: menu.menuName, url: '/article/4#' + menu.id})
-                    if (menu.hasChildren) {
-                        menu.children.map(function(subMenu, idx) {
-                            var url = '/article/4#' + subMenu.id;
-                            menuService.subMenu.push({name: subMenu.menuName, url: url})
-                        })
-                    }
+                    // if (menu.hasChildren) {
+                    //     menu.children.map(function(subMenu, idx) {
+                    //         var url = '/article/4#' + subMenu.id;
+                    //         menuService.subMenu.push({name: subMenu.menuName, url: url})
+                    //     })
+                    // }
                 }; break;
                 case '5': {
                     // 联络
                     menuContact.subMenu.push({name: menu.menuName, url: '/article/5#' + menu.id})
-                    if (menu.hasChildren) {
-                        menu.children.map(function(subMenu, idx) {
-                            var url = '/article/5#' + subMenu.id;
-                            menuContact.subMenu.push({name: subMenu.menuName, url: url})
-                        })
-                    }
+                    // if (menu.hasChildren) {
+                    //     menu.children.map(function(subMenu, idx) {
+                    //         var url = '/article/5#' + subMenu.id;
+                    //         menuContact.subMenu.push({name: subMenu.menuName, url: url})
+                    //     })
+                    // }
                 }; break;
                 default: ;
             }
