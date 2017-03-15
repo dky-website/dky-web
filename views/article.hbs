@@ -84,7 +84,7 @@
 
             $.ajax({
                 type: 'get',
-                url: '{{root}}/front/suggest/addSuggest?name' + '=' + name + '&title=' + title + '&content=' + content,
+                url: '{{root}}/front/suggest/addSuggest?name' + '=' + encodeURIComponent(name) + '&title=' + encodeURIComponent(title) + '&content=' + encodeURIComponent(content),
                 dataType: 'jsonp',
                 jsonp: "jsoncallback",
                 success: function(result) {
