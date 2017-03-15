@@ -44,14 +44,15 @@ router.get(['/', '/:id'], function(req, res) {
 
             var bannerPics = banResult.data,
                 showData = showResult.data,
-                middleShow = showData.middleShow,
+                middleShowList = showData.middleShowList,
                 oldShowList = showData.oldShowList;
 
             res.render('show', {
                 title: '旦可韵 - show',
                 menu: 'show',
                 bannerPics: bannerPics,
-                middleShow: middleShow,
+                seasonName: middleShowList.length > 0 ? middleShowList[0].showSeason : '',
+                middleShowList: middleShowList,
                 oldShowList: oldShowList,
                 root: Constant.WEB_ROOT
             });

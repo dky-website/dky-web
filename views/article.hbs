@@ -88,6 +88,9 @@
                 dataType: 'jsonp',
                 jsonp: "jsoncallback",
                 success: function(result) {
+                    $('#name').val('');
+                    $('#title').val('');
+                    $('#content').val('');
                     alert('提交成功,感谢反馈!')
                     // console.warn(result)
                 },
