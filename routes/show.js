@@ -36,7 +36,7 @@ router.get(['/', '/:id'], function(req, res) {
     } else {
         var jobs = [];
         jobs.push(rocket.get(Constant.WEB_ROOT + '/front/banner/showBannerList'));
-        jobs.push(rocket.get(Constant.WEB_ROOT + '/front/show/showImageList?id=' + showId));
+        jobs.push(rocket.get(Constant.WEB_ROOT + '/front/show/showImageList?seasonId=' + showId));
 
         Promise.all([...jobs]).then(function([banResult, showResult]) {
             var banResult = JSON.parse(banResult),
