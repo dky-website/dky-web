@@ -88,8 +88,8 @@
                 dataType: 'jsonp',
                 jsonp: "jsoncallback",
                 success: function(result) {
-                    // alert('提交成功')
-                    console.warn(result)
+                    alert('提交成功,感谢反馈!')
+                    // console.warn(result)
                 },
                 error: function() {
                     alert('保存失败，请稍后再试.');
@@ -99,7 +99,7 @@
     })
     function renderThumb(type, imgUrl) {
         if (type == '3') {
-            $('.thumb').css('background-image', null);
+            $('.thumb').css('background-image', '');
             $('.thumb').html(
                 '<form class="suggest">' +
                     '<div>' +
