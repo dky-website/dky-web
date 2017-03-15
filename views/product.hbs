@@ -99,7 +99,7 @@ $(function() {
                     // $('.right-wrapper').empty();
                     productSwiper.removeAllSlides();
                     $.each(data.imgList, function(idx, obj) {
-                        productSwiper.appendSlide('<div class="swiper-slide" style="background-image:url({{ root }}/' + obj.imgUrl + '"></div>')
+                        productSwiper.appendSlide('<div class="swiper-slide" style="background-size: cover;background-image:url({{ root }}/' + obj.imgUrl + '"></div>')
                     })
                 } else {
                     alert('该类目下无产品.')
