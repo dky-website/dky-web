@@ -431,11 +431,21 @@ a {
   position: relative; }
   .show-page .image-list .image-container {
     height: 400px;
-    overflow-x: hidden; }
+    overflow: hidden; }
     .show-page .image-list .image-container .swiper-slide {
       background-position: center;
       background-size: cover;
-      background-repeat: no-repeat; }
+      background-repeat: no-repeat;
+      -webkit-transition: all 0.5s;
+      transition: all 0.5s; }
+      .show-page .image-list .image-container .swiper-slide.active {
+        -webkit-transform: scale(1.3, 1.3);
+                transform: scale(1.3, 1.3); }
+      .show-page .image-list .image-container .swiper-slide.none-active {
+        -webkit-transform: scale(0.8, 0.8);
+                transform: scale(0.8, 0.8);
+        opacity: 0.6;
+        filter: alpha(opacity=60); }
     .show-page .image-list .image-container .swiper-pagination-bullets {
       bottom: -50px !important; }
       .show-page .image-list .image-container .swiper-pagination-bullets .swiper-pagination-bullet.swiper-pagination-bullet-active {

@@ -15,7 +15,7 @@
         <div class="image-container">
             <div class="swiper-wrapper">
                 {{#forEach middleShowList}}
-                <div class="swiper-slide" style="background-image:url({{ ../root }}/{{ image }})"></div>
+                <div class="swiper-slide enlarged-pic" style="background-size:cover;background-image:url({{ ../root }}/{{ image }})" onclick="magnify('{{@index}}')"></div>
                 {{/forEach}}
             </div>
             <!-- Add Pagination -->
@@ -37,6 +37,7 @@
     </div>
 
     <script type="text/javascript">
+        var swiperImage;
         $(function() {
             var swiperBanner = new Swiper('.banner-container', {
                 pagination: '.swiper-pagination',
@@ -45,7 +46,7 @@
                 autoplay: 2500,
                 autoplayDisableOnInteraction: false
             });
-            var swiperImage = new Swiper('.image-container', {
+            swiperImage = new Swiper('.image-container', {
                 pagination: '.swiper-pagination',
                 paginationClickable: '.swiper-pagination',
                 paginationClickable: true,
@@ -54,6 +55,24 @@
                 grabCursor: true,
                 preventLinksPropagation : false
             });
+
+
         })
+        function magnify(index) {
+
+            if ($('.enlarged-pic').eq(index).hasClass('active')) {
+                for (var i = 0; i < $('.enlarged-pic').length; i++) {
+                    $('.enlarged-pic').eq(i).removeClass('active');
+                    $('.enlarged-pic').eq(i).removeClass('none-active');
+                }
+            } else {
+                for (var i = 0; i < $('.enlarged-pic').length; i++) {
+                    $('.enlarged-pic').eq(i).removeClass('active');
+                    $('.enlarged-pic').eq(i).addClass('none-active');
+                }
+                $('.enlarged-pic').eq(index).addClass('active');
+                $('.enlarged-pic').eq(index).removeClass('none-active');
+            }
+        }
     </script>
 </div>
