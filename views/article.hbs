@@ -81,10 +81,13 @@
             var name = $("#name").val(),
                 title = $("#title").val(),
                 content = $('#content').val();
-
+            if ($.trim(name) == '' || $.trim(title) == '' || $.trim(content) == '') {
+                alert('名称、标题、内容均不能为空.');
+                return ;
+            }
             $.ajax({
                 type: 'get',
-                url: '{{root}}/front/suggest/addSuggest?name' + '=' + encodeURIComponent(name) + '&title=' + encodeURIComponent(title) + '&content=' + encodeURIComponent(content),
+                url: '{{root}}/front/suggest/addSuggest?name' + '=' + encodeURIComponent(encodeURIComponent(name)) + '&title=' + encodeURIComponent(encodeURIComponent(title)) + '&content=' + encodeURIComponent(encodeURIComponent(content)),
                 dataType: 'jsonp',
                 jsonp: "jsoncallback",
                 success: function(result) {
