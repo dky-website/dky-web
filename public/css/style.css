@@ -489,6 +489,9 @@ a {
     float: left;
     width: 50%;
     box-sizing: border-box; }
+    .product-page .left-wrapper .content {
+      width: 450px;
+      margin: 0 auto; }
     .product-page .left-wrapper .title {
       font-size: 18px; }
     .product-page .left-wrapper .type {
@@ -525,6 +528,9 @@ a {
     height: 472px;
     box-sizing: border-box;
     position: relative; }
+    .product-page .right-wrapper .content {
+      width: 450px;
+      margin: 0 auto; }
     .product-page .right-wrapper .product-container {
       margin-left: auto;
       margin-right: auto;
