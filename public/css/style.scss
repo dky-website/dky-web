@@ -314,17 +314,18 @@
     }
     .image-list {
         position: relative;
-        // overflow: hidden;
+        overflow: hidden;
         .image-container {
             height: 400px;
-            overflow: hidden;
+            // overflow: hidden;
             .swiper-slide {
                 background-position: center;
                 background-size: cover;
                 background-repeat: no-repeat;
                 transition: all 0.5s;
+                transform:scale(.9,.9);
                 &.active {
-                    transform:scale(1.3,1.3);
+                    transform:scale(1,1);
                 }
                 &.none-active {
                     transform:scale(.8,.8);

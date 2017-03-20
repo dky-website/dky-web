@@ -57,7 +57,8 @@ $(function() {
     $("#cover-prew").fancybox({
         'transitionIn'  : 'elastic',
         'transitionOut' : 'elastic',
-        'titlePosition' : 'inside'
+        'titlePosition' : 'inside',
+        'closeBtn'      : false
     });
     $('#type-list').delegate('li', 'click', function() {
         var typeId = $(this).attr('data-type');
