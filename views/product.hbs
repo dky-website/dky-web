@@ -24,7 +24,7 @@
                     {{else}}
                     <li class="season-item " data-season="{{id}}">
                     {{/if}}
-                        <a href="javascript:;">{{name}}</a>
+                        <a href="javascript:;">{{name}}&nbsp;&nbsp;</a>
                     </li>
                     {{/forEach}}
                 </ul>
@@ -78,9 +78,9 @@ $(function() {
                     seaContont = '';
                 $.each(seasonList, function(idx, season) {
                     if (!idx) {
-                        seaContont = '<li class="season-item active" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '</a></li>'
+                        seaContont = '<li class="season-item active" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '&nbsp;&nbsp;</a></li>'
                     } else {
-                        seaContont += '<li class="season-item" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '</a></li>'
+                        seaContont += '<li class="season-item" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '&nbsp;&nbsp;</a></li>'
                     }
                 })
                 $('#season-list').html(seaContont);
@@ -119,6 +119,8 @@ $(function() {
     $('#season-list').delegate('li', 'click', function() {
         var seasonId = $(this).attr('data-season'),
             typeId = $('.type-item.active').attr('data-type');
+        $('#season-list li').removeClass('active');
+        $(this).addClass('active');
         $.ajax({
             type: 'get',
             url: '{{root}}/front/product/queryProduct?type=' + typeId + '&season=' + seasonId,
