@@ -198,11 +198,14 @@
         padding: 158px 160px;
         .thumb {
             display: inline-block;
-            width: 35%;
+            width: 49%;
             .cover {
-                width: 265px;
-                height: 300px;
+                // width: 265px;
+                // height: 300px;
+                width: 392px;
+                height: 294px;
                 margin: 0 auto;
+                background-repeat: no-repeat;
                 background-size: cover;
                 // background-image: url("http://placehold.it/265x300");
             }
@@ -211,7 +214,7 @@
                     padding-top: 40px;
                     font-size: 16px;
                     margin: 0 auto;
-                    width: 265px;
+                    width: 392px;
                     ul > li {
 
                         &.active {
@@ -233,10 +236,10 @@
 
         }
         .carousel-wrapper {
-            width: 64%;
+            width: 50%;
             display: inline-block;
             .carousel {
-                width: 500px;
+                width: 450px;
                 height: 400px;
                 margin: 0 auto;
                 position: relative;
