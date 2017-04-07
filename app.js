@@ -94,7 +94,7 @@ app.use(function(req, res, next) {
                 }; break;
                 case '3': {
                     // show
-                    menuShow.subMenu.push({name: menu.menuName, url: ('/show/' + menu.id)})
+                    menuShow.subMenu.push({name: menu.menuName, url: ('/show/' + menu.id + '/1')})
                     // if (menu.hasChildren) {
                     //     menu.children.map(function(subMenu, idx) {
                     //         menuShow.subMenu.push({name: subMenu.menuName, url: ('/show/' + subMenu.id)})

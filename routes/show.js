@@ -3,8 +3,9 @@ var Constant = require('../utils/const');
 var rocket = require('../utils/rocket');
 var router = express.Router();
 
-router.get(['/', '/:id'], function(req, res) {
-    var showId = req.params.id;
+router.get(['/', '/:id', '/:id/:footer'], function(req, res) {
+    var showId = req.params.id,
+        footer = req.params.footer;
     if (showId === undefined) {
         var jobs = [];
         jobs.push(rocket.get(Constant.WEB_ROOT + '/front/banner/showBannerList'));
@@ -35,8 +36,13 @@ router.get(['/', '/:id'], function(req, res) {
         });
     } else {
         var jobs = [];
-        jobs.push(rocket.get(Constant.WEB_ROOT + '/front/banner/showBannerList'));
-        jobs.push(rocket.get(Constant.WEB_ROOT + '/front/show/showImageList?seasonId=' + showId));
+        if (footer === undefined) {
+            jobs.push(rocket.get(Constant.WEB_ROOT + '/front/banner/showBannerList'));
+            jobs.push(rocket.get(Constant.WEB_ROOT + '/front/show/showImageList?seasonId=' + showId));
+        } else {
+            jobs.push(rocket.get(Constant.WEB_ROOT + '/front/banner/showBannerList?menuStatus=true'));
+            jobs.push(rocket.get(Constant.WEB_ROOT + '/front/show/showImageList?seasonId=' + showId + '&menuStatus=true'));
+        }
 
         Promise.all([...jobs]).then(function([banResult, showResult]) {
             var banResult = JSON.parse(banResult),
