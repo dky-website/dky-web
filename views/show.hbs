@@ -15,7 +15,7 @@
         <div class="image-container">
             <div class="swiper-wrapper">
                 {{#forEach middleShowList}}
-                <div class="swiper-slide enlarged-pic" style="background-size:cover;background-image:url({{ ../root }}/{{ image }})" onclick="magnify('{{@index}}')"></div>
+                <div class="swiper-slide enlarged-pic" style="background-position: 0% 0%;background-size:cover;background-image:url({{ ../root }}/{{ image }})" onclick="magnify('{{@index}}')"></div>
                 {{/forEach}}
             </div>
             <!-- Add Pagination -->
@@ -29,7 +29,7 @@
         {{#forEach oldShowList}}
         <div class="review-item">
             <a href="/show/{{seasonId}}">
-                <div class="review-pic" style="background-size: cover;background-image:url({{ ../root }}/{{ image }})"></div>
+                <div class="review-pic" style="background-position: 0% 0%;background-size: cover;background-image:url({{ ../root }}/{{ image }})"></div>
                 <div class="review-name">{{showSeason}}</div>
             </a>
         </div>
