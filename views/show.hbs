@@ -15,7 +15,7 @@
         <div class="image-container">
             <div class="swiper-wrapper">
                 {{#forEach middleShowList}}
-                <div class="swiper-slide enlarged-pic" style="background-position: 0% 0%;background-size:cover;background-image:url({{ ../root }}/{{ image }})" onclick="magnify('{{@index}}')"></div>
+                <div class="swiper-slide enlarged-pic" style="background-position: 0% 0%;background-size:cover;height: 400px;background-image:url({{ ../root }}/{{ image }})" onclick="magnify('{{@index}}')"></div>
                 {{/forEach}}
             </div>
             <!-- Add Pagination -->

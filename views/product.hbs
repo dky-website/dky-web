@@ -59,9 +59,11 @@ $(function() {
         mousewheelControl: true
     });
     $("#cover-prew").fancybox({
+        'padding' : 0,
         'transitionIn'  : 'elastic',
         'transitionOut' : 'elastic',
         'titlePosition' : 'inside',
+        'autoScale' : false,
         'closeBtn'      : false
     });
     $('#type-list').delegate('li', 'click', function() {
@@ -129,7 +131,7 @@ $(function() {
             success: function(result) {
                 var data = result.data;
                 if (result.success) {
-                    $('#cover-prew').attr('href', 'url({{root}}/' + data.imgUrl + ')')
+                    $('#cover-prew').attr('href', '{{root}}/' + data.imgUrl)
                     $('.cover').css('background-image',  'url({{root}}/' + data.imgUrl + ')')
                     // image list
                     // $('.right-wrapper').empty();
