@@ -613,3 +613,12 @@
     font-size: 15px;
     text-align: center;
 }
+
+@media (min-height:1000px) {
+    .product-wrapper {
+        min-height: 85vh;
+    }
+    .article-page {
+        min-height: 85vh;
+    }
+}
