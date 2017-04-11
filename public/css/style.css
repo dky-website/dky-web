@@ -430,6 +430,8 @@ a {
   padding: 80px 0 76px 0; }
 .show-page .image-list {
   position: relative;
+  max-width: 1349px;
+  margin: 0 auto;
   overflow: hidden; }
   .show-page .image-list .image-container {
     height: 400px; }

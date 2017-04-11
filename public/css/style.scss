@@ -317,6 +317,8 @@
     }
     .image-list {
         position: relative;
+        max-width: 1349px;
+        margin: 0 auto;
         overflow: hidden;
         .image-container {
             height: 400px;
