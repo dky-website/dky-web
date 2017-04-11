@@ -374,7 +374,7 @@ a {
     display: inline-block; }
     .index .product-wrapper .carousel-wrapper .carousel {
       width: 450px;
-      height: 400px;
+      height: 471px;
       margin: 0 auto;
       position: relative; }
       .index .product-wrapper .carousel-wrapper .carousel.hack {
@@ -671,7 +671,7 @@ a {
   font-size: 15px;
   text-align: center; }
 
-@media (min-height: 1000px) {
+@media (min-height: 800px) {
   .product-wrapper {
     min-height: 85vh; }
 
