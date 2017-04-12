@@ -617,14 +617,12 @@ a {
       padding: 0 20px;
       color: #888; }
     .article-page .container .thumbarea {
+      padding: 0 20px; }
+    .article-page .container .thumb {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 60%;
               flex: 1 1 60%;
-      padding: 0 20px; }
-    .article-page .container .thumb {
-      width: 392px;
-      height: 294px;
-      margin: 0 auto;
+      height: 300px;
       background-size: cover; }
       .article-page .container .thumb .suggest input, .article-page .container .thumb .suggest textarea {
         color: #000; }
