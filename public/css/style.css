@@ -616,11 +616,15 @@ a {
               flex: 1 1 40%;
       padding: 0 20px;
       color: #888; }
-    .article-page .container .thumb {
+    .article-page .container .thumbarea {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 60%;
               flex: 1 1 60%;
-      height: 300px;
+      padding: 0 20px; }
+    .article-page .container .thumb {
+      width: 392px;
+      height: 294px;
+      margin: 0 auto;
       background-size: cover; }
       .article-page .container .thumb .suggest input, .article-page .container .thumb .suggest textarea {
         color: #000; }
