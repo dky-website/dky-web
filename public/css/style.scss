@@ -115,7 +115,7 @@
 }
 
 .footer {
-    padding: 38px 180px;
+    padding: 38px 16%;
     background-color: #f2f2f2;
     display: flex;
 
@@ -551,17 +551,19 @@
         display: flex;
         padding-top: 70px;
         .article {
-            flex: 1 1 40%;
+            flex: 1 1 30%;
             padding: 0 20px;
             color: #888;
         }
         .thumbarea {
+            flex: 1 1 70%;
 
-            padding: 0 20px;
         }
         .thumb {
-            flex: 1 1 60%;
+
+            width: 500px;
             height: 300px;
+            margin: 0 auto;
             background-size: cover;
 
             .suggest {

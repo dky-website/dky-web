@@ -279,7 +279,7 @@ a {
     -o-opacity: 1;
     opacity: 1; } }
 .footer {
-  padding: 38px 180px;
+  padding: 38px 16%;
   background-color: #f2f2f2;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -612,17 +612,18 @@ a {
     padding-top: 70px; }
     .article-page .container .article {
       -webkit-box-flex: 1;
-          -ms-flex: 1 1 40%;
-              flex: 1 1 40%;
+          -ms-flex: 1 1 30%;
+              flex: 1 1 30%;
       padding: 0 20px;
       color: #888; }
     .article-page .container .thumbarea {
-      padding: 0 20px; }
-    .article-page .container .thumb {
       -webkit-box-flex: 1;
-          -ms-flex: 1 1 60%;
-              flex: 1 1 60%;
+          -ms-flex: 1 1 70%;
+              flex: 1 1 70%; }
+    .article-page .container .thumb {
+      width: 500px;
       height: 300px;
+      margin: 0 auto;
       background-size: cover; }
       .article-page .container .thumb .suggest input, .article-page .container .thumb .suggest textarea {
         color: #000; }
