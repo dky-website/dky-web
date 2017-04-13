@@ -622,7 +622,7 @@ a {
               flex: 1 1 70%; }
     .article-page .container .thumb {
       width: 500px;
-      height: 300px;
+      height: 350px;
       margin: 0 auto;
       background-size: cover; }
       .article-page .container .thumb .suggest input, .article-page .container .thumb .suggest textarea {
