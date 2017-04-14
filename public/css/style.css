@@ -169,8 +169,7 @@ a {
     .bar .logo a {
       color: #000;
       display: inline-block;
-      height: 100%;
-      width: 100px; }
+      height: 100%; }
       .bar .logo a:hover, .bar .logo a:focus {
         text-decoration: none; }
   .bar .nav-wrapper {
