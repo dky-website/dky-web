@@ -337,7 +337,7 @@ a {
 
 .index .banner-container {
   width: 100%;
-  height: 595px;
+  height: 720px;
   overflow: hidden;
   position: relative; }
   .index .banner-container .swiper-slide {
@@ -567,7 +567,7 @@ a {
 
 .article-page {
   margin-top: 70px;
-  padding: 118px 15% 148px 15%;
+  padding: 118px 16% 148px 16%;
   min-height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
