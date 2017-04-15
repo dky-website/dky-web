@@ -578,9 +578,11 @@ a {
             flex: 1 1 20%; }
     .article-page .menu .title {
       font-size: 18px;
-      margin-bottom: 50px; }
+      margin-bottom: 50px;
+      margin-left: 90px; }
     .article-page .menu ul {
-      margin-bottom: 40px; }
+      margin-bottom: 40px;
+      margin-left: 90px; }
       .article-page .menu ul li {
         display: none; }
       .article-page .menu ul .first-level {
