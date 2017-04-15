@@ -578,11 +578,9 @@ a {
             flex: 1 1 20%; }
     .article-page .menu .title {
       font-size: 18px;
-      margin-bottom: 50px;
-      margin-left: 90px; }
+      margin-bottom: 50px; }
     .article-page .menu ul {
-      margin-bottom: 40px;
-      margin-left: 90px; }
+      margin-bottom: 40px; }
       .article-page .menu ul li {
         display: none; }
       .article-page .menu ul .first-level {
@@ -610,7 +608,8 @@ a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding-top: 70px; }
+    padding-top: 70px;
+    margin-left: -90px; }
     .article-page .container .article {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 30%;
