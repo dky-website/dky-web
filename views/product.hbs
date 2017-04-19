@@ -1,51 +1,91 @@
 <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
 <div class="product-page">
-    <div class="left-wrapper">
-        <div class="content">
-            <div class="title">产品</div>
-            <div class="type">
-                <ul id="type-list">
-                    {{#forEach typeList}}
-                        {{#if isFirst}}
-                        <li class="type-item active" data-type="{{id}}" data-cn="{{typeName}}">
-                        {{else}}
-                        <li class="type-item" data-type="{{id}}" data-cn="{{typeName}}">
-                        {{/if}}
-                            <a href="javascript:;">{{typeEnName}}</a>
-                        </li>
-                    {{/forEach}}
-                </ul>
-            </div>
-            <div class="season">
-                <ul id="season-list">
-                    {{#forEach seasonList}}
-                    {{#if isFirst}}
-                    <li class="season-item active" data-season="{{id}}">
-                    {{else}}
-                    <li class="season-item " data-season="{{id}}">
-                    {{/if}}
-                        <a href="javascript:;">{{name}}&nbsp;&nbsp;</a>
-                    </li>
-                    {{/forEach}}
-                </ul>
-            </div>
-            <a id="cover-prew" href="{{root}}/{{firstProduct.imgUrl}}">
-                <div class="cover" style='background-image: url("{{root}}/{{firstProduct.imgUrl}}");'></div>
-            </a>
+    <!-- Swiper -->
+    <div class="banner-container">
+        <div class="swiper-wrapper">
+            {{#forEach bannerPics}}
+                <div class="swiper-slide" style="background-position: top left;background-size: cover;background-image:url({{ ../root }}/{{ path }})"></div>
+            {{/forEach}}
         </div>
     </div>
-    <div class="right-wrapper">
-        <div class="content">
-            <div class="product-container">
-                <div class="swiper-wrapper">
-                    {{#forEach firstProduct.imgList}}
-                    <div class="swiper-slide" style="background-size: cover;background-image:url({{ ../root }}/{{ imgUrl }})"></div>
-                    {{/forEach}}
+    <div class="product-content">
+        <div class="product-type">
+            <div>
+                <a href="javascript:;">产品</a>
+            </div>
+            <div class="split">|</div>
+            <div>
+                <a href="javascript:;">系列</a>
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="image-cell">
+                <div class="image"></div>
+                <div class="text">
+                    <span>OVERSIZED COTTON PARKA</span>
                 </div>
             </div>
-            <div class="swiper-pagination swiper-pagination-white product-pagination"></div>
+            <div class="image-cell">
+                <div class="image"></div>
+                <div class="text">
+                    <span>OVERSIZED COTTON PARKA</span>
+                </div>
+            </div>
+            <div class="image-cell">
+                <div class="image"></div>
+                <div class="text">
+                    <span>OVERSIZED COTTON PARKA</span>
+                </div>
+            </div>
+        </div>
+        <div class="left-wrapper">
+            <div class="content">
+                <div class="title">产品</div>
+                <div class="type">
+                    <ul id="type-list">
+                        {{#forEach typeList}}
+                            {{#if isFirst}}
+                            <li class="type-item active" data-type="{{id}}" data-cn="{{typeName}}">
+                            {{else}}
+                            <li class="type-item" data-type="{{id}}" data-cn="{{typeName}}">
+                            {{/if}}
+                                <a href="javascript:;">{{typeEnName}}</a>
+                            </li>
+                        {{/forEach}}
+                    </ul>
+                </div>
+                <div class="season">
+                    <ul id="season-list">
+                        {{#forEach seasonList}}
+                        {{#if isFirst}}
+                        <li class="season-item active" data-season="{{id}}">
+                        {{else}}
+                        <li class="season-item " data-season="{{id}}">
+                        {{/if}}
+                            <a href="javascript:;">{{name}}&nbsp;&nbsp;</a>
+                        </li>
+                        {{/forEach}}
+                    </ul>
+                </div>
+                <a id="cover-prew" href="{{root}}/{{firstProduct.imgUrl}}">
+                    <div class="cover" style='background-image: url("{{root}}/{{firstProduct.imgUrl}}");'></div>
+                </a>
+            </div>
+        </div>
+        <div class="right-wrapper">
+            <div class="content">
+                <div class="product-container">
+                    <div class="swiper-wrapper">
+                        {{#forEach firstProduct.imgList}}
+                        <div class="swiper-slide" style="background-size: cover;background-image:url({{ ../root }}/{{ imgUrl }})"></div>
+                        {{/forEach}}
+                    </div>
+                </div>
+                <div class="swiper-pagination swiper-pagination-white product-pagination"></div>
+            </div>
         </div>
     </div>
+
 </div>
 <script src="/js/jquery.ba-hashchange.js"></script>
 <script src="/js/jquery.fancybox.min.js"></script>
