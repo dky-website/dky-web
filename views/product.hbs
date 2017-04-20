@@ -1,4 +1,5 @@
 <link href="/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="/css/pager.css" rel="stylesheet">
 <div class="product-page">
     <!-- Swiper -->
     <div class="banner-container">
@@ -11,30 +12,29 @@
     <div class="product-content">
         <div class="product-type">
             <div style="position:relative;">
-                <a href="javascript:;">产品</a>
-                <ul class="menu">
-                    <li>
-                        <a href="javascript:;">测试测试测试测试</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">测试</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;">测试</a>
-                    </li>
+                <a href="javascript:;" id="btnProduct">产品</a>
+                <ul class="menu type-list" style="display: none;">
                     {{#forEach typeList}}
-                        <li>
-                            <a data-type="{{id}}" href="javascript:;" data-cn="{{typeName}}">{{typeEnName}}</a>
+                        {{#if isFirst}}
+                        <li class="type-item active" data-type="{{id}}" data-cn="{{typeName}}">
+                        {{else}}
+                        <li class="type-item" data-type="{{id}}" data-cn="{{typeName}}">
+                        {{/if}}
+                            <a href="javascript:;">{{typeEnName}}</a>
                         </li>
                     {{/forEach}}
                 </ul>
             </div>
             <div class="split">|</div>
             <div style="position:relative;">
-                <a href="javascript:;">系列</a>
-                <ul class="menu">
+                <a href="javascript:;" id="btnSeason">系列</a>
+                <ul class="menu" id="season-list" style="display: none;">
                     {{#forEach seasonList}}
-                        <li data-season="{{id}}">
+                        {{#if isFirst}}
+                        <li class="season-item active" data-season="{{id}}">
+                        {{else}}
+                        <li class="season-item" data-season="{{id}}">
+                        {{/if}}
                             <a href="javascript:;">{{name}}&nbsp;&nbsp;</a>
                         </li>
                     {{/forEach}}
@@ -42,75 +42,41 @@
             </div>
         </div>
         <div class="image-container">
-            <div class="image-cell">
+            {{#forEach productList.result}}
+                <div class="image-cell">
+                    <div class="image" style="background-image:url('{{ ../root }}/{{imgUrl}}')"></div>
+                    {{!-- <div class="text">
+                        <span>OVERSIZED COTTON PARKA</span>
+                    </div> --}}
+                </div>
+            {{/forEach}}
+            {{!-- <div class="image-cell">
                 <div class="image"></div>
                 <div class="text">
                     <span>OVERSIZED COTTON PARKA</span>
                 </div>
-            </div>
-            <div class="image-cell">
-                <div class="image"></div>
-                <div class="text">
-                    <span>OVERSIZED COTTON PARKA</span>
-                </div>
-            </div>
-            <div class="image-cell">
-                <div class="image"></div>
-                <div class="text">
-                    <span>OVERSIZED COTTON PARKA</span>
-                </div>
-            </div>
-            <div class="image-cell">
-                <div class="image"></div>
-                <div class="text">
-                    <span>OVERSIZED COTTON PARKA</span>
-                </div>
-            </div>
+            </div> --}}
         </div>
-
-
-
-        <div class="left-wrapper">
-            <div class="content">
-                <div class="title">产品</div>
-                <div class="type">
-                    <ul id="type-list">
+        <div class="product-footer">
+            <div class="footer-cell">
+                <div class="product-title-list">
+                    <ul class="type-list">
                         {{#forEach typeList}}
                             {{#if isFirst}}
                             <li class="type-item active" data-type="{{id}}" data-cn="{{typeName}}">
                             {{else}}
-                            <li class="type-item" data-type="{{id}}" data-cn="{{typeName}}">
+                            <li class="type-item" data-type="{{id}}" data-cn="{{typeName}}">/
                             {{/if}}
                                 <a href="javascript:;">{{typeEnName}}</a>
                             </li>
                         {{/forEach}}
                     </ul>
                 </div>
-                <div class="season">
-                    <ul id="season-list">
-                        {{#forEach seasonList}}
-                        {{#if isFirst}}
-                        <li class="season-item active" data-season="{{id}}">
-                        {{else}}
-                        <li class="season-item " data-season="{{id}}">
-                        {{/if}}
-                            <a href="javascript:;">{{name}}&nbsp;&nbsp;</a>
-                        </li>
-                        {{/forEach}}
-                    </ul>
-                </div>
             </div>
-        </div>
-        <div class="right-wrapper">
-            <div class="content">
-                <div class="product-container">
-                    <div class="swiper-wrapper">
-                        {{#forEach productList.result}}
-                        <div class="swiper-slide" style="background-size: cover;background-image:url({{ ../root }}/{{ imgUrl }})"></div>
-                        {{/forEach}}
-                    </div>
+            <div class="footer-cell last">
+                <div class="pagination-wrapper">
+                    <ul class="page" maxshowpageitem="5" pagelistcount="10"  id="page"></ul>
                 </div>
-                <div class="swiper-pagination swiper-pagination-white product-pagination"></div>
             </div>
         </div>
     </div>
@@ -118,24 +84,43 @@
 </div>
 <script src="/js/jquery.ba-hashchange.js"></script>
 <script src="/js/jquery.fancybox.min.js"></script>
+<script src="/js/pager.js"></script>
 <script type="text/javascript">
 $(function() {
-    var productSwiper = new Swiper('.product-container', {
-        pagination: '.product-pagination',
-        paginationClickable: true,
-        direction: 'vertical',
-        grabCursor: true,
-        mousewheelControl: true
+
+    $("#btnProduct").mouseover(function() {
+        $("#type-list").show();
+    })
+    $("#btnProduct").mouseout(function() {
+        $("#type-list").hide();
+    })
+
+    $("#type-list").mouseover(function() {
+        $("#type-list").show();
+    })
+    $("#type-list").mouseout(function() {
+        $("#type-list").hide();
+    })
+
+    $("#btnSeason").mouseover(function() {
+        $("#season-list").show();
+    })
+    $("#btnSeason").mouseout(function() {
+        $("#season-list").hide();
+    })
+
+    $("#season-list").mouseover(function() {
+        $("#season-list").show();
+    })
+    $("#season-list").mouseout(function() {
+        $("#season-list").hide();
+    })
+
+    $("#page").initPage(71, 1, function(page) {
+        console.warn(page, 'page..')
     });
-    $("#cover-prew").fancybox({
-        'padding' : 0,
-        'transitionIn'  : 'elastic',
-        'transitionOut' : 'elastic',
-        'titlePosition' : 'inside',
-        'autoScale' : false,
-        'closeBtn'      : false
-    });
-    $('#type-list').delegate('li', 'click', function() {
+
+    $('.type-list').delegate('li', 'click', function() {
         var typeId = $(this).attr('data-type');
         $('.type-item.active').removeClass('active');
         $(this).addClass('active');
@@ -149,7 +134,7 @@ $(function() {
                     seaContont = '';
                 $.each(seasonList, function(idx, season) {
                     if (!idx) {
-                        seaContont = '<li class="season-item active" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '&nbsp;&nbsp;</a></li>'
+                        seaContont += '<li class="season-item active" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '&nbsp;&nbsp;</a></li>'
                     } else {
                         seaContont += '<li class="season-item" data-season="' + season.id + '"><a href="javascript:;">' + season.name + '&nbsp;&nbsp;</a></li>'
                     }
@@ -162,21 +147,24 @@ $(function() {
         });
         $.ajax({
             type: 'get',
-            url: '{{root}}/front/product/queryProduct?type=' + typeId,
+            url: '{{root}}/front/product/queryImgListByPage?pageSize=9&type=' + typeId,
             dataType: 'jsonp',
             jsonp: "jsoncallback",
             success: function(result) {
                 var data = result.data;
                 if (result.success) {
-                    $('#cover-prew').attr('href', '{{root}}/' + data.imgUrl)
-                    $('.cover').css('background-image', 'url({{root}}/' + data.imgUrl + ')')
-
-                    // image list
-                    // $('.right-wrapper').empty();
-                    productSwiper.removeAllSlides();
-                    $.each(data.imgList, function(idx, obj) {
-                        productSwiper.appendSlide('<div class="swiper-slide" style="background-size: cover;background-image:url({{ root }}/' + obj.imgUrl + '"></div>')
+                    var productList = '';
+                    $.each(data.result, function(idx, product) {
+                        console.warn('root', '{{ root }}')
+                        var root = '{{ root }}',
+                            url =  root + '/' + product.imgUrl;
+                        console.warn(url)
+                        productList += '<div class="image-cell">' +
+                                            '<div class="image" style="background-image:url('+ url + ')"></div>' +
+                                        '</div>';
                     })
+                    $('.image-container').html(productList);
+                    console.warn(data, '...')
                 } else {
                     alert('该类目下无产品.')
                 }
@@ -194,22 +182,15 @@ $(function() {
         $(this).addClass('active');
         $.ajax({
             type: 'get',
-            url: '{{root}}/front/product/queryProduct?type=' + typeId + '&season=' + seasonId,
+            url: '{{root}}/front/product/queryImgListByPage?pageSize=9&type=' + typeId + '&season=' + seasonId,
             dataType: 'jsonp',
             jsonp: "jsoncallback",
             success: function(result) {
                 var data = result.data;
                 if (result.success) {
-                    $('#cover-prew').attr('href', '{{root}}/' + data.imgUrl)
-                    $('.cover').css('background-image',  'url({{root}}/' + data.imgUrl + ')')
-                    // image list
-                    // $('.right-wrapper').empty();
-                    productSwiper.removeAllSlides();
-                    $.each(data.imgList, function(idx, obj) {
-                        productSwiper.appendSlide('<div class="swiper-slide" style="background-image:url({{ root }}/' + obj.imgUrl + '"></div>')
-                    })
+                    console.warn(data, '2222')
                 } else {
-                    alert('该季节下无产品.')
+                    alert('该系列下无产品.')
                 }
             },
             error: function() {
