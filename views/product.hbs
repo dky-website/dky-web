@@ -10,12 +10,35 @@
     </div>
     <div class="product-content">
         <div class="product-type">
-            <div>
+            <div style="position:relative;">
                 <a href="javascript:;">产品</a>
+                <ul class="menu">
+                    <li>
+                        <a href="javascript:;">测试测试测试测试</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">测试</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">测试</a>
+                    </li>
+                    {{#forEach typeList}}
+                        <li>
+                            <a data-type="{{id}}" href="javascript:;" data-cn="{{typeName}}">{{typeEnName}}</a>
+                        </li>
+                    {{/forEach}}
+                </ul>
             </div>
             <div class="split">|</div>
-            <div>
+            <div style="position:relative;">
                 <a href="javascript:;">系列</a>
+                <ul class="menu">
+                    {{#forEach seasonList}}
+                        <li data-season="{{id}}">
+                            <a href="javascript:;">{{name}}&nbsp;&nbsp;</a>
+                        </li>
+                    {{/forEach}}
+                </ul>
             </div>
         </div>
         <div class="image-container">
@@ -37,7 +60,16 @@
                     <span>OVERSIZED COTTON PARKA</span>
                 </div>
             </div>
+            <div class="image-cell">
+                <div class="image"></div>
+                <div class="text">
+                    <span>OVERSIZED COTTON PARKA</span>
+                </div>
+            </div>
         </div>
+
+
+
         <div class="left-wrapper">
             <div class="content">
                 <div class="title">产品</div>
@@ -67,16 +99,13 @@
                         {{/forEach}}
                     </ul>
                 </div>
-                <a id="cover-prew" href="{{root}}/{{firstProduct.imgUrl}}">
-                    <div class="cover" style='background-image: url("{{root}}/{{firstProduct.imgUrl}}");'></div>
-                </a>
             </div>
         </div>
         <div class="right-wrapper">
             <div class="content">
                 <div class="product-container">
                     <div class="swiper-wrapper">
-                        {{#forEach firstProduct.imgList}}
+                        {{#forEach productList.result}}
                         <div class="swiper-slide" style="background-size: cover;background-image:url({{ ../root }}/{{ imgUrl }})"></div>
                         {{/forEach}}
                     </div>

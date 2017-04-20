@@ -400,20 +400,38 @@
         .product-type {
             text-align: center;
             font-size: 16px;
-            padding-top: 80px;
-            padding-bottom: 40px;
+            padding-top: 60px;
             div {
                 display: inline-block;
                 padding: 5px 25px;
+                width: 80px;
                 a {
                     color: #333;
-
+                    display: inline-block;
+                    width: 100%;
+                    height: 100%;
+                }
+                .menu {
+                    position: absolute;
+                    background: #bfbcbc;
+                    width: 130px;
+                    left: 0;
+                    top: 40px;
+                    li {
+                        color: #333;
+                        padding: 10px 20px;
+                        font-size: 15px;
+                        &:hover {
+                            background: #ccc;
+                        }
+                    }
                 }
 
             }
             .split {
                 color: #333;
                 padding: 5px 10px;
+                width: 30px;
             }
         }
         a {
@@ -425,10 +443,13 @@
         }
         .image-container {
             display: flex;
-            flex-wrap: wrapper;
+            flex-wrap: wrap;
             flex-direction: row;
+
             .image-cell {
-                flex: 1 0 33.33%;
+                flex: 0 0 33.33%;
+                padding-top: 40px;
+                padding-bottom: 15px;
 
                 .image {
                     background-image: url("http://60.190.63.14:99/website-web/assets/img/upload/20170407/1491533981485.jpg");
