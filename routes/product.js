@@ -18,7 +18,6 @@ router.get(['/', '/:cnName'], function(req, res) {
             typeResult = JSON.parse(typeResult),
             seasonResult = JSON.parse(seasonResult),
             productResult= JSON.parse(productResult);
-console.warn(productResult)
         res.render('product', {
             title: '旦可韵 - product',
             menu: 'product',
