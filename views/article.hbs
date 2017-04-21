@@ -43,6 +43,11 @@
 <script type="text/javascript">
     $(function() {
         $('input, textarea').placeholder();
+        $('.article').hover(function() {
+            $(this).addClass('hover')
+        }, function() {
+            $(this).removeClass('hover')
+        })
         $(window).hashchange( function(){
             var hash = location.hash;
 

@@ -730,8 +730,10 @@ a {
       padding: 0 20px;
       color: #888;
       height: 350px;
-      text-align: justify;
-      overflow: auto; }
+      overflow: hidden;
+      letter-spacing: .1em; }
+      .article-page .container .article.hover {
+        overflow: auto; }
     .article-page .container .thumbarea {
       -webkit-box-flex: 1;
           -ms-flex: 1 1 70%;

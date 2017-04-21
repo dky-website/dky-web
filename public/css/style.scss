@@ -694,8 +694,11 @@
             padding: 0 20px;
             color: #888;
             height: 350px;
-            text-align: justify;
-            overflow: auto;
+            overflow: hidden;
+            letter-spacing: .1em;
+            &.hover {
+                overflow: auto;
+            }
         }
         .thumbarea {
             flex: 1 1 70%;
